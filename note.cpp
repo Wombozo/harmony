@@ -5,10 +5,10 @@ Note::~Note()
 }
 
 Note::Note(char n, char a)
-   {
+{
       name = n;
       alt = (a == 'n') ? ' ' : a;
-   }
+}
 
 char Note::getName()
     {

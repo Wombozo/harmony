@@ -2,7 +2,7 @@
 
 Scale::Scale(char n, char a, std::string t) : Note(n,a)
 {
-      if (n == 'B' && a == '#')
+	 if (n == 'B' && a == '#')
       {
           name = 'C';
           alt = ' ';
@@ -27,6 +27,11 @@ Scale::Scale(char n, char a, std::string t) : Note(n,a)
           name = 'F';
           alt = '#';
       }
+      else if (n == 'A' && a == '#')
+      {
+          name = 'B';
+          alt = 'b';
+      }
       else if (n == 'A' && a == 'b' && t == "Minor")
        {
           name = 'G';
@@ -37,11 +42,6 @@ Scale::Scale(char n, char a, std::string t) : Note(n,a)
           name = 'D';
           alt = '#';
        }
-      else if (n == 'A' && a == '#')
-      {
-          name = 'B';
-          alt = 'b';
-      }
       else if (n == 'D' && a == 'b' && t == "Minor")
       {
           name = 'C';

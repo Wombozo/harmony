@@ -26,9 +26,12 @@ void init_chord(void)
         std::cout << "Enter one of these : " << Chord::valid_chords() << " : "; 
         std::cin >> quality;
         valid_chord = checkName(quality);
-    } while (valid_chord == false);
+    } while (valid_chord == -1);
     Chord c(baseNote, alt, quality);
-    //c.display();
+    c.displayNameChord();
+    c.setNb(valid_chord);
+    std::cout << "You did great until there, but the rest is not implemented yet WOOPS !" << std::endl;
+    //c.buildChord();
     
 }
 

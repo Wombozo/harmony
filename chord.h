@@ -2,12 +2,11 @@
 #define CHORD
 
 #include "note.h"
-#include <string.h>
-
+#include "utils.h"
 
 #define NAME_IS(x) (#x == n)
 
-bool checkName(std::string n);
+int checkName(std::string n);
 
 class Chord : public Note
 {
@@ -20,10 +19,12 @@ class Chord : public Note
        Chord(char root, char alt, std::string n);
        ~Chord();
        static const std::string valid_chords(void);
-       void display(void);
+       void displayNameChord(void);
+       void setNb(int n);
+       void buildChord(void);
 
     private:
-       void setNameChord(void);
+       void setNameChord(std::string quality);
 
 };
 
