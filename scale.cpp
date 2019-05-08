@@ -2,7 +2,8 @@
 
 Scale::Scale(char n, char a, std::string t) : Note(n,a)
 {
-    type = t;
+    type.assign(t);
+    setIntervals();
 }
 
 Scale::~Scale()
@@ -14,20 +15,30 @@ std::string Scale::getType()
     return type;
 }
 
-std::vector<int> getIntervals()
+std::vector<int> Scale::getIntervals()
 {
+    return intervals;
 }
 
-void Scale::setIntervals(std::vector<int> v)
+void Scale::setDegrees()
 {
-    if (!type.compare("Major"))
+
+}
+
+void Scale::setIntervals()
+{
+    if SCALE_IS(Major)
     {
-        std::cout << "Major scale" << std::endl;
-        v = {2, 2, 1, 2, 2, 2, 1};
+        intervals = {2, 2, 1, 2, 2, 2, 1};
     }
 }
 
 void Scale::display()
+{
+    std::cout << name << alt << " " << type << " scale" << std::endl;
+}
+
+void Scale::displayDegrees()
 {
     std::string s;
     for (auto &degree : degrees)
