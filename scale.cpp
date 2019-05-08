@@ -47,6 +47,16 @@ Scale::Scale(char n, char a, std::string t) : Note(n,a)
           name = 'C';
           alt = '#'; 
       }
+     else if (n == 'G' && a == '#' && t == "Major")
+     {
+         name = 'A';
+         alt = 'b';
+     }
+     else if (n == 'C' && a == '#' && t == "Major")
+     {
+         name = 'D';
+         alt = 'b';
+     }
 
     type.assign(t);
     setIntervals();
@@ -93,6 +103,7 @@ void Scale::setIntervals()
 
 void Scale::display()
 {
+    std::cout << std::endl;
     std::cout << name << alt << " " << type << " scale :" << std::endl;
     displayDegrees();
 }

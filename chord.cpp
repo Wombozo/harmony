@@ -11,22 +11,30 @@ Chord::~Chord()
 {
 }
 
+void Chord::buildChord3(std::string c)
+{
+    char base3, base5, alt3, alt5;
+    std::vector<char> sortedBases = arrangeBaseNotes(name);
+    if (c == "M" || c == "m")
+    {
+        if (name == 'B' && alt == 'b')
+            alt5 = 'n';
+        else if (name == 'B' && alt == 'n')
+            alt5 = '#';
+        else
+           alt5 = alt;
+    }
+    else if (c == "aug")
+    {
+    }
+    base3 = sortedBases[2];
+    base5 = sortedBases[4];
+
+}
+
 
 void Chord::buildChord()
 {
-    switch(nb)
-    {
-        case 3:
-
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        default:
-            break;
-    }
-                
 }
 
 const std::string Chord::valid_chords()

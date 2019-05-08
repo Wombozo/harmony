@@ -25,6 +25,7 @@ class Chord : public Note
 
     private:
        void setNameChord(std::string quality);
+       void buildChord3(std::string c);
 
 };
 
