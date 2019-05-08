@@ -1,12 +1,16 @@
+#ifndef NOTE
+#define NOTE
+
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 class Note
 {
     protected:
         char name;
         char alt;
-        static const char notes[] = {'A','B','C','D','E','F','G'}
 
     public:
            Note(char n, char a);
@@ -18,3 +22,5 @@ class Note
 
 };
 
+std::vector<char> arrangeBaseNotes(char note);
+#endif
