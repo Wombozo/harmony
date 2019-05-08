@@ -3,9 +3,10 @@
 
 class Note
 {
-    private:
+    protected:
         char name;
         char alt;
+        static const char notes[] = {'A','B','C','D','E','F','G'}
 
     public:
            Note(char n, char a);
