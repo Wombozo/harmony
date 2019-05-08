@@ -3,6 +3,8 @@
 #include <iostream>
 #include "note.h"
 
+#define SCALE_IS(x) (!type.compare(#x))
+
 class Scale : public Note
 {
     private:
@@ -17,9 +19,12 @@ class Scale : public Note
         ~Scale();
         
         std::string getType(void);
-  
         std::vector<Note> getDegrees(void);
         std::vector<int> getIntervals(void);
-        void setIntervals(std::vector<int>);
+
         void display(void);
+        void displayDegrees(void);
+  
+        void setIntervals(void);
+        void setDegrees(void);
 };
