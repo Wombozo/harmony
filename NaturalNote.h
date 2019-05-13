@@ -1,23 +1,35 @@
-class NaturalNote: public Note {
+#ifndef _NaturalNote
+#define _NaturalNote
+
+#include "Note.h"
+
+class SharpNote;
+class FlatNote;
+
+class NaturalNote: public virtual Note {
 
     private:
         std::string name;
         std::string fname;
-        SharpNote sn;
-        FlatNote fn;
+        SharpNote *sn;
+        FlatNote *fn;
         int semiToneCount;
     public:
-        NaturalNote following;
-        NaturalNote preceding;
+        NaturalNote *following;
+        NaturalNote *preceding;
 
     public:
-        NaturalNote(std::string name, std::string fname);
+        NaturalNote(std::string name, std::string fname, int semiToneCount);
         ~NaturalNote();
 
+        void initialize(void);
+
         std::string getName(void);
-        std::string fetFName(void);
-        SharpNote getSharpNote(void);
-        FlatNote getFlatNote(void);
+        std::string getFName(void);
+        SharpNote* getSharpNote(void);
+        FlatNote* getFlatNote(void);
         int getSemiToneCount(void);
 
 };
+
+#endif

@@ -1,5 +1,16 @@
-class AlteredNote:public Note 
+#ifndef _AlteredNote
+#define _AlteredNote
+
+#include "Note.h"
+
+class NaturalNote;
+
+class AlteredNote:public virtual Note 
 {
     private:
-        Natural natural;
+        NaturalNote *natural;
+
+
 };
+
+#endif
