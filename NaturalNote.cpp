@@ -35,7 +35,3 @@ int NaturalNote::getSemiToneCount()
     return semiToneCount;
 }
 
-void NaturalNote::initialize()
-{
-//    Note A = new NaturalNote();
-}

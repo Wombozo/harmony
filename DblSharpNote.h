@@ -9,7 +9,6 @@ class DblSharpNote: public AlteredNote
     public:
         DblSharpNote(void);
         ~DblSharpNote(void);
-        void initialize(void);
 
         
 

@@ -13,7 +13,6 @@ class SharpNote:public AlteredNote
     public:
         SharpNote(DblSharpNote *flat);
         ~SharpNote(void);
-        void initialize(void);
 
 };
 

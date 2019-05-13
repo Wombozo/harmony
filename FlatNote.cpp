@@ -10,6 +10,3 @@ FlatNote::~FlatNote()
 
 }
 
-void FlatNote::initialize()
-{
-}

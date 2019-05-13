@@ -9,6 +9,3 @@ SharpNote::~SharpNote()
 {
 }
 
-void SharpNote::initialize()
-{
-}

@@ -9,10 +9,9 @@ class FlatNote: public AlteredNote
 {
        private:
            DblFlatNote *flat;
-        public:
+       public:
            FlatNote(DblFlatNote *flat);
            ~FlatNote(void);
-           void initialize(void);
 
 };
 

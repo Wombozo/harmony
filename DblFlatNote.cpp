@@ -9,6 +9,3 @@ DblFlatNote::~DblFlatNote()
 {
 }
 
-void DblFlatNote::initialize()
-{
-}

@@ -8,6 +8,3 @@ DblSharpNote::~DblSharpNote()
 {
 }
 
-void DblSharpNote::initialize()
-{
-}

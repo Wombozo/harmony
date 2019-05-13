@@ -8,7 +8,6 @@ class DblFlatNote: public AlteredNote
     public:
         DblFlatNote(void);
         ~DblFlatNote(void);
-        void initialize(void);
 
 
 };

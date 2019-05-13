@@ -19,16 +19,14 @@ class NaturalNote: public virtual Note {
         NaturalNote *preceding;
 
     public:
-        NaturalNote(std::string name, std::string fname, int semiToneCount);
+        NaturalNote(std::string, std::string, int);
         ~NaturalNote();
-
-        void initialize(void);
-
         std::string getName(void);
         std::string getFName(void);
         SharpNote* getSharpNote(void);
         FlatNote* getFlatNote(void);
         int getSemiToneCount(void);
+
 
 };
 
