@@ -1,0 +1,5 @@
+class DblSharpNote: public AlteredNote
+{
+
+
+};

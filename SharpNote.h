@@ -1,0 +1,4 @@
+class SharpNote:public AlteredNote
+{
+
+};
