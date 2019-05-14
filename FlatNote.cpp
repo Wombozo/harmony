@@ -9,3 +9,9 @@ FlatNote::FlatNote(NaturalNote *n, DblFlatNote *flat)
 FlatNote::~FlatNote()
 {
 }
+
+
+std::string FlatNote::display()
+{
+    return getNatural()->display()+"b";
+}

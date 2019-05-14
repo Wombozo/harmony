@@ -13,6 +13,7 @@ private:
 public:
     SharpNote(NaturalNote *, DblSharpNote *);
     ~SharpNote(void);
+    std::string display(void);
 };
 
 #endif

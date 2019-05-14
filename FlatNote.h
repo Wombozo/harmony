@@ -13,6 +13,7 @@ private:
 public:
     FlatNote(NaturalNote *, DblFlatNote *);
     ~FlatNote(void);
+    std::string display(void);
 };
 
 #endif

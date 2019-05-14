@@ -1,6 +1,6 @@
 #include "NaturalNote.h"
 
-NaturalNote::NaturalNote(std::string name, std::string fname, int semiToneCount, SharpNote *sn, FlatNote *fn)
+NaturalNote::NaturalNote(std::string name, std::string fname, int semiToneCount)
 {
     this->name = name;
     this->fname = fname;
@@ -23,17 +23,12 @@ std::string NaturalNote::getFName()
     return fname;
 }
 
-SharpNote *NaturalNote::getSharpNote()
-{
-    return sn;
-}
-
-FlatNote *NaturalNote::getFlatNote()
-{
-    return fn;
-}
-
 int NaturalNote::getSemiToneCount()
 {
     return semiToneCount;
+}
+
+std::string NaturalNote::display()
+{
+    return getName();
 }

@@ -8,3 +8,8 @@ DblSharpNote::DblSharpNote(NaturalNote *n)
 DblSharpNote::~DblSharpNote()
 {
 }
+
+std::string DblSharpNote::display()
+{
+    return getNatural()->display()+"##";
+}

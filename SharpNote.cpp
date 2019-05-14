@@ -9,3 +9,8 @@ SharpNote::SharpNote(NaturalNote *n, DblSharpNote *flat)
 SharpNote::~SharpNote()
 {
 }
+
+std::string SharpNote::display()
+{
+    return getNatural()->display()+"#";
+}

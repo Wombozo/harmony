@@ -13,21 +13,20 @@ private:
     std::string name;
     std::string fname;
     int semiToneCount;
-    SharpNote *sn;
-    FlatNote *fn;
 
 public:
     NaturalNote *following;
     NaturalNote *preceding;
+    SharpNote *sn;
+    FlatNote *fn;
 
 public:
-    NaturalNote(std::string, std::string, int, SharpNote *, FlatNote *);
+    NaturalNote(std::string, std::string, int);
     ~NaturalNote();
     std::string getName(void);
     std::string getFName(void);
-    SharpNote *getSharpNote(void);
-    FlatNote *getFlatNote(void);
     int getSemiToneCount(void);
+    std::string display(void);
 };
 
 #endif

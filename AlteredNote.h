@@ -2,8 +2,9 @@
 #define _AlteredNote
 
 #include "Note.h"
+#include "NaturalNote.h"
 
-class NaturalNote;
+//class NaturalNote;
 
 class AlteredNote : public virtual Note
 {
@@ -12,6 +13,7 @@ private:
 
 protected:
     void setNatural(NaturalNote *);
+    NaturalNote *getNatural(void);
 };
 
 #endif

@@ -8,3 +8,9 @@ DblFlatNote::DblFlatNote(NaturalNote *n)
 DblFlatNote::~DblFlatNote()
 {
 }
+std::string DblFlatNote::display()
+{
+
+    return getNatural()->display()+"bb";
+
+}
