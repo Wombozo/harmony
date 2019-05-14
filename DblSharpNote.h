@@ -3,17 +3,12 @@
 
 #include "AlteredNote.h"
 
-class DblSharpNote: public AlteredNote
+class DblSharpNote : public AlteredNote
 {
 
-    public:
-        DblSharpNote(void);
-        ~DblSharpNote(void);
-
-        
-
-
+public:
+    DblSharpNote(NaturalNote *);
+    ~DblSharpNote(void);
 };
-
 
 #endif

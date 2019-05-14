@@ -6,28 +6,28 @@
 class SharpNote;
 class FlatNote;
 
-class NaturalNote: public virtual Note {
+class NaturalNote : public virtual Note
+{
 
-    private:
-        std::string name;
-        std::string fname;
-        SharpNote *sn;
-        FlatNote *fn;
-        int semiToneCount;
-    public:
-        NaturalNote *following;
-        NaturalNote *preceding;
+private:
+    std::string name;
+    std::string fname;
+    int semiToneCount;
+    SharpNote *sn;
+    FlatNote *fn;
 
-    public:
-        NaturalNote(std::string, std::string, int);
-        ~NaturalNote();
-        std::string getName(void);
-        std::string getFName(void);
-        SharpNote* getSharpNote(void);
-        FlatNote* getFlatNote(void);
-        int getSemiToneCount(void);
+public:
+    NaturalNote *following;
+    NaturalNote *preceding;
 
-
+public:
+    NaturalNote(std::string, std::string, int, SharpNote *, FlatNote *);
+    ~NaturalNote();
+    std::string getName(void);
+    std::string getFName(void);
+    SharpNote *getSharpNote(void);
+    FlatNote *getFlatNote(void);
+    int getSemiToneCount(void);
 };
 
 #endif

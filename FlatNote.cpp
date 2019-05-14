@@ -1,12 +1,11 @@
 #include "FlatNote.h"
 
-FlatNote::FlatNote(DblFlatNote *flat)
+FlatNote::FlatNote(NaturalNote *n, DblFlatNote *flat)
 {
+    setNatural(n);
     this->flat = flat;
 }
 
 FlatNote::~FlatNote()
 {
-
 }
-

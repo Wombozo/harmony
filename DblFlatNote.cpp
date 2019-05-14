@@ -1,11 +1,10 @@
 #include "DblFlatNote.h"
 
-DblFlatNote::DblFlatNote()
+DblFlatNote::DblFlatNote(NaturalNote *n)
 {
-
+    setNatural(n);
 }
 
 DblFlatNote::~DblFlatNote()
 {
 }
-

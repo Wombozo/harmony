@@ -1,11 +1,11 @@
 #include "SharpNote.h"
 
-SharpNote::SharpNote(DblSharpNote *flat)
+SharpNote::SharpNote(NaturalNote *n, DblSharpNote *flat)
 {
+    setNatural(n);
     this->flat = flat;
 }
 
 SharpNote::~SharpNote()
 {
 }
-

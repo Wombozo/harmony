@@ -5,14 +5,13 @@
 
 class NaturalNote;
 
-class AlteredNote:public virtual Note 
+class AlteredNote : public virtual Note
 {
-    private:
-        NaturalNote *natural;
-    protected:
-        void setNatural(NaturalNote*);
+private:
+    NaturalNote *natural;
 
-
+protected:
+    void setNatural(NaturalNote *);
 };
 
 #endif

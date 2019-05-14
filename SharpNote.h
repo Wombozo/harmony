@@ -5,15 +5,14 @@
 
 class DblSharpNote;
 
-class SharpNote:public AlteredNote
+class SharpNote : public AlteredNote
 {
-    private:
-        DblSharpNote *flat;
+private:
+    DblSharpNote *flat;
 
-    public:
-        SharpNote(DblSharpNote *flat);
-        ~SharpNote(void);
-
+public:
+    SharpNote(NaturalNote *, DblSharpNote *);
+    ~SharpNote(void);
 };
 
 #endif

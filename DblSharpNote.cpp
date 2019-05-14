@@ -1,10 +1,10 @@
 #include "DblSharpNote.h"
 
-DblSharpNote::DblSharpNote()
+DblSharpNote::DblSharpNote(NaturalNote *n)
 {
+    setNatural(n);
 }
 
 DblSharpNote::~DblSharpNote()
 {
 }
-

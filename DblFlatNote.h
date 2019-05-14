@@ -3,13 +3,11 @@
 
 #include "AlteredNote.h"
 
-class DblFlatNote: public AlteredNote
+class DblFlatNote : public AlteredNote
 {
-    public:
-        DblFlatNote(void);
-        ~DblFlatNote(void);
-
-
+public:
+    DblFlatNote(NaturalNote *);
+    ~DblFlatNote(void);
 };
 
 #endif
