@@ -15,12 +15,13 @@ Note *Ass, *Bss, *Css, *Dss, *Ess, *Fss, *Gss;
 int main(int argc, char *argv[])
 {
     initialize();
-    std::cout << A->display() << std::endl;
-    std::cout << Db->display() << std::endl;
-    std::cout << Fss->display() << std::endl;
-    std::cout << Eb->display() << std::endl;
-    std::cout << G->display() << std::endl;
-    std::cout << Abb->display() << std::endl;
+    std::cout << Ab->semiToneCount() << std::endl;
+    std::cout << Abb->semiToneCount() << std::endl;
+    std::cout << G->semiToneCount() << std::endl;
+    std::cout << As->semiToneCount() << std::endl;
+    std::cout << Eb->semiToneCount() << std::endl;
+    std::cout << Bs->semiToneCount() << std::endl;
+    std::cout << F->semiToneCount() << std::endl;
 }
 
 void initialize()

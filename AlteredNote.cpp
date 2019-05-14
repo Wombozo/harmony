@@ -5,7 +5,7 @@ void AlteredNote::setNatural(NaturalNote *n)
     natural = n;
 }
 
-NaturalNote* AlteredNote::getNatural()
+NaturalNote *AlteredNote::getNatural()
 {
     return natural;
 }

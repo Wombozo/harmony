@@ -8,12 +8,13 @@ class DblSharpNote;
 class SharpNote : public AlteredNote
 {
 private:
-    DblSharpNote *flat;
+    DblSharpNote *sharp;
 
 public:
     SharpNote(NaturalNote *, DblSharpNote *);
     ~SharpNote(void);
     std::string display(void);
+    int semiToneCount(void);
 };
 
 #endif

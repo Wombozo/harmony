@@ -1,9 +1,9 @@
 #include "SharpNote.h"
 
-SharpNote::SharpNote(NaturalNote *n, DblSharpNote *flat)
+SharpNote::SharpNote(NaturalNote *n, DblSharpNote *sharp)
 {
     setNatural(n);
-    this->flat = flat;
+    this->sharp = sharp;
 }
 
 SharpNote::~SharpNote()
@@ -13,4 +13,9 @@ SharpNote::~SharpNote()
 std::string SharpNote::display()
 {
     return getNatural()->display()+"#";
+}
+
+int SharpNote::semiToneCount()
+{
+    return getNatural()->semiTone+1;
 }

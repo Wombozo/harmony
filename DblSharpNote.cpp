@@ -13,3 +13,8 @@ std::string DblSharpNote::display()
 {
     return getNatural()->display()+"##";
 }
+
+int DblSharpNote::semiToneCount()
+{
+    return getNatural()->semiTone+2;
+}

@@ -10,7 +10,10 @@ DblFlatNote::~DblFlatNote()
 }
 std::string DblFlatNote::display()
 {
-
     return getNatural()->display()+"bb";
+}
 
+int DblFlatNote::semiToneCount()
+{
+    return getNatural()->semiTone-2;
 }

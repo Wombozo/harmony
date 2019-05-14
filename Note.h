@@ -8,6 +8,7 @@ class Note
 {
 public:
     virtual std::string display(void) = 0;
+    virtual int semiToneCount(void) = 0;
 };
 
 #endif
