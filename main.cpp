@@ -3,6 +3,7 @@
 #include "FlatNote.h"
 #include "DblFlatNote.h"
 #include "DblSharpNote.h"
+#include "Interval.h"
 
 void initialize(void);
 
@@ -22,6 +23,8 @@ int main(int argc, char *argv[])
     std::cout << Eb->semiToneCount() << std::endl;
     std::cout << Bs->semiToneCount() << std::endl;
     std::cout << F->semiToneCount() << std::endl;
+    Interval inter(2,3);
+    std::cout << inter.show() << std::endl;
 }
 
 void initialize()

@@ -3,7 +3,7 @@ CP=g++
 
 all: $(EXE) clean
 
-$(EXE): main.o nn.o an.o sn.o fn.o ssn.o ffn.o i.o
+$(EXE): main.o nn.o an.o sn.o fn.o ssn.o ffn.o i.o ch.o
 	$(CP) -o $@ $^
 
 main.o: main.cpp
@@ -28,6 +28,9 @@ ffn.o: DblFlatNote.cpp
 	$(CP) -o $@ -c $<
 
 i.o: Interval.cpp
+	$(CP) -o $@ -c $<
+
+ch.o: Chord.cpp
 	$(CP) -o $@ -c $<
 
 .SILENT: clean

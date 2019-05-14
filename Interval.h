@@ -10,5 +10,6 @@ public:
     ~Interval(void);
 
     void computeInterval(Note*, Note*);
+    std::string show(void);
 
 };
