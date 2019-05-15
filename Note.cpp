@@ -12,7 +12,7 @@ Note *Ass, *Bss, *Css, *Dss, *Ess, *Fss, *Gss;
 
 void Note::initialize()
 {
-       NaturalNote *rA = new NaturalNote("A", "La", 0);
+    NaturalNote *rA = new NaturalNote("A", "La", 0);
     DblFlatNote *rabb = new DblFlatNote(rA);
     FlatNote *rab = new FlatNote(rA,rabb);
     DblSharpNote *rass = new DblSharpNote(rA);
