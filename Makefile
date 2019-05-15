@@ -3,10 +3,16 @@ CP=g++
 
 all: $(EXE) clean
 
-$(EXE): main.o nn.o an.o sn.o fn.o ssn.o ffn.o i.o ch.o
+$(EXE): main.o err.o n.o nn.o an.o sn.o fn.o ssn.o ffn.o i.o ch.o
 	$(CP) -o $@ $^
 
 main.o: main.cpp
+	$(CP) -o $@ -c $<
+
+n.o: Note.cpp
+	$(CP) -o $@ -c $<
+
+err.o: errors.cpp
 	$(CP) -o $@ -c $<
 
 nn.o: NaturalNote.cpp
