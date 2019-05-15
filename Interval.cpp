@@ -4,15 +4,7 @@ Interval::Interval(int t, int s)
 {
     type = t;
     semitones = s;
-}
-
-Interval::~Interval()
-{
-}
-
-std::string Interval::show()
-{
-    std::string str, stype, sst;
+    std::string stype, sst;
     switch (type)
     {
     case 2:
@@ -37,7 +29,7 @@ std::string Interval::show()
         break;
     case 7:
         stype = "seventh";
-        sst = (semitones == 8) ? "diminished" : (semitones == 9) ? "minor" : (semitones == 10) ? "major" : (semitones == 11) ? "augmented" : throw E_INTERVAL;
+        sst = (semitones == 9) ? "diminished" : (semitones == 10) ? "minor" : (semitones == 11) ? "major" : (semitones == 11) ? "augmented" : throw E_INTERVAL;
         break;
     case 8:
         stype = "octave";
@@ -47,5 +39,123 @@ std::string Interval::show()
         throw 0;
         break;
     }
-    return sst + " " + stype;
+    name = sst + " " + stype;
+}
+
+Interval::Interval(std::string str)
+{
+    if (!str.compare("minor second"))
+    {
+        type = 2;
+        semitones = 1;
+    }
+    else if (!str.compare("major second"))
+    {
+        type = 2;
+        semitones = 2;
+    }
+    else if (!str.compare("augmented second"))
+    {
+        type = 2;
+        semitones = 3;
+    }
+    else if (!str.compare("diminished third"))
+    {
+        type = 3;
+        semitones = 1;
+    }
+    else if (!str.compare("minor third"))
+    {
+        type = 3;
+        semitones = 1;
+    }
+    else if (!str.compare("major third"))
+    {
+        type = 3;
+        semitones = 1;
+    }
+    else if (!str.compare("augmented third"))
+    {
+        type = 3;
+        semitones = 1;
+    }
+    else if (!str.compare("diminished fourth"))
+    {
+        type = 4;
+        semitones = 1;
+    }
+    else if (!str.compare("perfect fourth"))
+    {
+        type = 4;
+        semitones = 1;
+    }
+    else if (!str.compare("augmented fourth"))
+    {
+        type = 4;
+        semitones = 1;
+    }
+    else if (!str.compare("diminished fifth"))
+    {
+        type = 5;
+        semitones = 1;
+    }
+    else if (!str.compare("perfect fifth"))
+    {
+        type = 5;
+        semitones = 1;
+    }
+    else if (!str.compare("augmented fifth"))
+    {
+        type = 5;
+        semitones = 1;
+    }
+    else if (!str.compare("diminished sixth"))
+    {
+        type = 6;
+        semitones = 1;
+    }
+    else if (!str.compare("minor sixth"))
+    {
+        type = 6;
+        semitones = 1;
+    }
+    else if (!str.compare("major sixth"))
+    {
+        type = 6;
+        semitones = 1;
+    }
+    else if (!str.compare("augmented sixth"))
+    {
+        type = 6;
+        semitones = 1;
+    }
+    else if (!str.compare("diminished seventh"))
+    {
+        type = 7;
+        semitones = 1;
+    }
+    else if (!str.compare("minor seventh"))
+    {
+        type = 7;
+        semitones = 1;
+    }
+    else if (!str.compare("major seventh"))
+    {
+        type = 7;
+        semitones = 1;
+    }
+    else
+    {
+        throw E_INTERVAL;
+    }
+    
+}
+
+Interval::~Interval()
+{
+}
+
+std::string Interval::getName()
+{
+    return name;
 }
