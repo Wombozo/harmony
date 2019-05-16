@@ -87,6 +87,18 @@ Chord::Chord(Note *n, std::string str) : root(n), name(str)
         intervals.push_back(Interval("major seventh"));
         setNotes();
     }
+    else if (!name.compare("6"))
+    {
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("perfect fifth"));
+        intervals.push_back(Interval("major sixth"));
+    }
+    else if (!name.compare("m6"))
+    {
+        intervals.push_back(Interval("minor third"));
+        intervals.push_back(Interval("perfect fifth"));
+        intervals.push_back(Interval("major sixth"));
+    }
     else if (!name.compare("7b5"))
     {
         intervals.push_back(Interval("major third"));
