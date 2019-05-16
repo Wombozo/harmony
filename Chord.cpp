@@ -13,6 +13,7 @@ void Chord::setNotes()
     {
         tmp = tmp->following;
     }
+    //TODO: handles semitones before pushing back
     notes.push_back(tmp);
     std::cout << tmp->display() << std::endl;
     tmp = root->getNatural();
@@ -21,6 +22,8 @@ void Chord::setNotes()
     {
         tmp = tmp->following;
     }
+    //TODO: handles semitones before pushing back
+    notes.push_back(tmp);
     std::cout << tmp->display() << std::endl;
 }
 
@@ -37,6 +40,93 @@ Chord::Chord(Note *n, std::string str) : root(n), name(str)
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("perfect fifth"));
+        setNotes();
+    }
+    else if (!name.compare("diminished"))
+    {
+        intervals.push_back(Interval("minor third"));
+        intervals.push_back(Interval("diminished fifth"));
+        setNotes();
+    }
+    else if (!name.compare("augmented"))
+    {
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("augmented fifth"));
+        setNotes();
+    }
+    else if (!name.compare("sus4"))
+    {
+        intervals.push_back(Interval("perfect fourth"));
+        intervals.push_back(Interval("perfect fifth"));
+        setNotes();
+    }
+    else if (!name.compare("sus2"))
+    {
+        intervals.push_back(Interval("major second"));
+        intervals.push_back(Interval("perfect fifth"));
+        setNotes();
+    }
+    else if (!name.compare("7"))
+    {
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("perfect fifth"));
+        intervals.push_back(Interval("minor seventh"));
+        setNotes();
+    }
+    else if (!name.compare("maj7"))
+    {
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("perfect fifth"));
+        intervals.push_back(Interval("major seventh"));
+        setNotes();
+    }
+    else if (!name.compare("minmaj7"))
+    {
+        intervals.push_back(Interval("minor third"));
+        intervals.push_back(Interval("perfect fifth"));
+        intervals.push_back(Interval("major seventh"));
+        setNotes();
+    }
+    else if (!name.compare("7b5"))
+    {
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("diminished fifth"));
+        intervals.push_back(Interval("minor seventh"));
+        setNotes();
+    }
+    else if (!name.compare("dim7"))
+    {
+        intervals.push_back(Interval("minor third"));
+        intervals.push_back(Interval("diminished fifth"));
+        intervals.push_back(Interval("diminished seventh"));
+        setNotes();
+    }
+    else if (!name.compare("m7b5"))
+    {
+        intervals.push_back(Interval("minor third"));
+        intervals.push_back(Interval("diminished fifth"));
+        intervals.push_back(Interval("minor seventh"));
+        setNotes();
+    }
+    else if (!name.compare("Ger6"))
+    {
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("perfect fifth"));
+        intervals.push_back(Interval("augmented sixth"));
+        setNotes();
+    }
+    else if (!name.compare("It6"))
+    {
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("augmented sixth"));
+        setNotes();
+    }
+    else if (!name.compare("Fr6"))
+    {
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("diminished fifth"));
+        intervals.push_back(Interval("augmented sixth"));
+        setNotes();
     }
     else
     {
