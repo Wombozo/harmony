@@ -15,5 +15,5 @@ std::string DblFlatNote::display()
 
 int DblFlatNote::semiToneCount()
 {
-    return getNatural()->semiTone-2;
+    return -2;
 }

@@ -14,7 +14,6 @@ private:
 protected:
     void setNatural(NaturalNote *);
     NaturalNote *getNatural(void);
-    //int semiToneReCount(void);
 };
 
 #endif

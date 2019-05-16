@@ -18,5 +18,5 @@ std::string FlatNote::display()
 
 int FlatNote::semiToneCount()
 {
-    return getNatural()->semiTone-1;
+    return -1;
 }

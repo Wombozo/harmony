@@ -12,43 +12,43 @@ Note *Ass, *Bss, *Css, *Dss, *Ess, *Fss, *Gss;
 
 void Note::initialize()
 {
-    NaturalNote *rA = new NaturalNote("A", "La", BASE_STONE);
+    NaturalNote *rA = new NaturalNote("A", "La", 2);
     DblFlatNote *rabb = new DblFlatNote(rA);
     FlatNote *rab = new FlatNote(rA, rabb);
     DblSharpNote *rass = new DblSharpNote(rA);
     SharpNote *ras = new SharpNote(rA, rass);
 
-    NaturalNote *rB = new NaturalNote("B", "Si", BASE_STONE+2);
+    NaturalNote *rB = new NaturalNote("B", "Si", 1);
     DblFlatNote *rbbb = new DblFlatNote(rB);
     FlatNote *rbb = new FlatNote(rB, rbbb);
     DblSharpNote *rbss = new DblSharpNote(rB);
     SharpNote *rbs = new SharpNote(rB, rbss);
 
-    NaturalNote *rC = new NaturalNote("C", "Do", BASE_STONE+3);
+    NaturalNote *rC = new NaturalNote("C", "Do", 2);
     DblFlatNote *rcbb = new DblFlatNote(rC);
     FlatNote *rcb = new FlatNote(rC, rcbb);
     DblSharpNote *rcss = new DblSharpNote(rC);
     SharpNote *rcs = new SharpNote(rC, rcss);
 
-    NaturalNote *rD = new NaturalNote("D", "Ré", BASE_STONE+5);
+    NaturalNote *rD = new NaturalNote("D", "Ré", 2);
     DblFlatNote *rdbb = new DblFlatNote(rD);
     FlatNote *rdb = new FlatNote(rD, rdbb);
     DblSharpNote *rdss = new DblSharpNote(rD);
     SharpNote *rds = new SharpNote(rA, rdss);
 
-    NaturalNote *rE = new NaturalNote("E", "Mi", BASE_STONE+7);
+    NaturalNote *rE = new NaturalNote("E", "Mi", 1);
     DblFlatNote *rebb = new DblFlatNote(rE);
     FlatNote *reb = new FlatNote(rE, rebb);
     DblSharpNote *ress = new DblSharpNote(rE);
     SharpNote *res = new SharpNote(rE, ress);
 
-    NaturalNote *rF = new NaturalNote("F", "Fa", BASE_STONE+8);
+    NaturalNote *rF = new NaturalNote("F", "Fa", 2);
     DblFlatNote *rfbb = new DblFlatNote(rF);
     FlatNote *rfb = new FlatNote(rF, rfbb);
     DblSharpNote *rfss = new DblSharpNote(rF);
     SharpNote *rfs = new SharpNote(rF, rfss);
 
-    NaturalNote *rG = new NaturalNote("G", "Sol", BASE_STONE+10);
+    NaturalNote *rG = new NaturalNote("G", "Sol", 2);
     DblFlatNote *rgbb = new DblFlatNote(rG);
     FlatNote *rgb = new FlatNote(rG, rgbb);
     DblSharpNote *rgss = new DblSharpNote(rG);

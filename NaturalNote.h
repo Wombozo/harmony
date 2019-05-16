@@ -18,7 +18,7 @@ public:
     NaturalNote *preceding;
     SharpNote *sn;
     FlatNote *fn;
-    int semiTone;
+    int semiToneNext;
 
 public:
     NaturalNote(std::string, std::string, int);
@@ -28,7 +28,6 @@ public:
     std::string getFName(void);
     std::string display(void);
     int semiToneCount(void);
-    void rotateST(void);
 };
 
 #endif

@@ -16,5 +16,5 @@ std::string DblSharpNote::display()
 
 int DblSharpNote::semiToneCount()
 {
-    return getNatural()->semiTone+2;
+    return 2;
 }
