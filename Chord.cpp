@@ -3,10 +3,10 @@
 
 //#define I_EQUALS(i, str) (!(intervals.at(i).getName().compare(str)))
 
-void Chord::setNotes(std::vector<Interval> ints)
+void Chord::setNotes()
 {
     notes.push_back(root);
-    int type = ints.at(0).getType();
+    int type = intervals.at(0).getType();
     NaturalNote *tmp = root->getNatural();
     std::cout << root->getNatural()->display() << std::endl;
     for (int i = 0; i < type - 1; i++)
@@ -16,7 +16,7 @@ void Chord::setNotes(std::vector<Interval> ints)
     notes.push_back(tmp);
     std::cout << tmp->display() << std::endl;
     tmp = root->getNatural();
-    type = ints.at(1).getType();
+    type = intervals.at(1).getType();
     for (int i = 0; i < type - 1; i++)
     {
         tmp = tmp->following;
@@ -26,17 +26,17 @@ void Chord::setNotes(std::vector<Interval> ints)
 
 Chord::Chord(Note *n, std::string str) : root(n), name(str)
 {
-    std::vector<Interval> ints;
+    intervals.clear();
     if (!name.compare("major"))
     {
-        ints.push_back(Interval("major third"));
-        ints.push_back(Interval("perfect fifth"));
-        setNotes(ints);
+        intervals.push_back(Interval("major third"));
+        intervals.push_back(Interval("perfect fifth"));
+        setNotes();
     }
     else if (!name.compare("minor"))
     {
-        ints.push_back(Interval("minor third"));
-        ints.push_back(Interval("perfect fifth"));
+        intervals.push_back(Interval("minor third"));
+        intervals.push_back(Interval("perfect fifth"));
     }
     else
     {

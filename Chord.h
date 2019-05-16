@@ -16,7 +16,7 @@ private:
     std::vector<Note*> notes;
 
 private:
-    void setNotes(std::vector<Interval>);
+    void setNotes(void);
 
 public:
     Chord(Note *, std::string);
