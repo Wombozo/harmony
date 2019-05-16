@@ -28,6 +28,7 @@ public:
     std::string getFName(void);
     std::string display(void);
     int semiToneCount(void);
+    void rotateST(void);
 };
 
 #endif

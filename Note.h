@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include "errors.h"
+
+#define BASE_STONE 2
+
 class NaturalNote;
 class Note;
 
@@ -21,6 +24,7 @@ public:
     virtual int semiToneCount(void) = 0;
     static void initialize(void);
     virtual NaturalNote *getNatural(void) = 0;
+    virtual void rotateST(){}
 };
 
 #endif
