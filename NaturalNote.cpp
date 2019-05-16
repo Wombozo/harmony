@@ -9,6 +9,11 @@ NaturalNote::NaturalNote(std::string name, std::string fname, int semiToneNext)
     this->fn = fn;
 }
 
+int NaturalNote::gS()
+{
+    return tmpST;
+}
+
 NaturalNote::~NaturalNote()
 {
 }
@@ -36,4 +41,16 @@ int NaturalNote::semiToneCount()
 NaturalNote *NaturalNote::getNatural()
 {
     return this;
+}
+
+void NaturalNote::sort()
+{
+    NaturalNote *tmp = this->following;
+    this->tmpST = 2;
+    int count=2;
+    while (tmp->following != this)
+    {
+        tmp->tmpST = count + tmp->semiToneNext;
+        tmp = tmp->following;
+    }
 }
