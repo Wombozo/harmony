@@ -12,4 +12,6 @@ public:
     Interval(std::string str);
     ~Interval(void);
     std::string getName(void);
+    int getType(void);
+    int getSemiTones(void);
 };

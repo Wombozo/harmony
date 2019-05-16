@@ -31,5 +31,9 @@ std::string NaturalNote::display()
 int NaturalNote::semiToneCount()
 {
     return semiTone;
+}
 
+NaturalNote *NaturalNote::getNatural()
+{
+    return this;
 }

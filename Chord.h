@@ -1,3 +1,6 @@
+#ifndef _CHORD
+#define _CHORD
+
 #include "Note.h"
 #include "Interval.h"
 #include <vector>
@@ -5,12 +8,21 @@
 
 class Chord
 {
-    private:
+private:
     Note *root;
     int nb;
-    std::vector<Interval> intervals;    
+    std::string name;
+    std::vector<Interval> intervals;
+    std::vector<Note*> notes;
 
-    public:
-    Chord(Note*, std::vector<std::tuple<int, int>>);
+private:
+    void setNotes(std::vector<Interval>);
+
+public:
+    Chord(Note *, std::string);
+    //    Chord(Note*, std::vector<std::string>);
     ~Chord();
+    std::string getName(void);
 };
+
+#endif

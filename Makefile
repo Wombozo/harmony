@@ -1,7 +1,7 @@
 EXE= exe
 CP=g++
 
-all: $(EXE) clean
+all: $(EXE)
 
 $(EXE): main.o err.o n.o nn.o an.o sn.o fn.o ssn.o ffn.o i.o ch.o
 	$(CP) -o $@ $^

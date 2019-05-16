@@ -23,6 +23,7 @@ public:
 public:
     NaturalNote(std::string, std::string, int);
     ~NaturalNote();
+    NaturalNote *getNatural(void);
     std::string getName(void);
     std::string getFName(void);
     std::string display(void);

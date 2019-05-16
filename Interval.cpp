@@ -148,6 +148,7 @@ Interval::Interval(std::string str)
     {
         throw E_INTERVAL;
     }
+    name = str;
 }
 
 Interval::~Interval()
@@ -157,4 +158,14 @@ Interval::~Interval()
 std::string Interval::getName()
 {
     return name;
+}
+
+int Interval::getType()
+{
+    return type;
+}
+
+int Interval::getSemiTones()
+{
+    return semitones;
 }
