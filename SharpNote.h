@@ -7,7 +7,7 @@ class DblSharpNote;
 
 class SharpNote : public AlteredNote
 {
-private:
+public:
     DblSharpNote *sharp;
 
 public:

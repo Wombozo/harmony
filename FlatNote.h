@@ -7,7 +7,7 @@ class DblFlatNote;
 
 class FlatNote : public AlteredNote
 {
-private:
+public:
     DblFlatNote *flat;
 
 public:
