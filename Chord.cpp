@@ -9,7 +9,7 @@
 
 void Chord::setNotes()
 {
-    std::cout << root->display() << " " << name << " chord : " << std::endl;
+    std::cout << root->display() << name << " chord : " << std::endl;
     root->getNatural()->sort();
     notes.push_back(root);
     for (int k = 0; k < intervals.size(); k++)
@@ -28,27 +28,33 @@ void Chord::setNotes()
         FlatNote *ftmp;
         DblSharpNote *sstmp;
         DblFlatNote *fftmp;
-       // std::cout<<"ntmp->nextSTNATURAL "<<ntmp->getNextSTNatural()<<std::endl;
+        std::cout<<"ntmp->nextSTNATURAL "<<ntmp->getNextSTNatural()<<std::endl;
+        std::cout<<"stIntervals = "<<rst<<std::endl;
 
         if (rst == root->semiToneShift() + ntmp->getNextSTNatural())
         {
             tmp = (Note *)ntmp;
+            std::cout<<__LINE__<<std::endl;
         }
         else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() + 1)
         {
             tmp = (Note *)ntmp->sn;
+            std::cout<<__LINE__<<std::endl;
         }
         else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 1)
         {
             tmp = (Note *)ntmp->fn;
+            std::cout<<__LINE__<<std::endl;
         }
         else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() + 2)
         {
             tmp = (Note *)ntmp->sn->sharp;
+            std::cout<<__LINE__<<std::endl;
         }
         else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 2)
         {
             tmp = (Note *)ntmp->fn->flat;
+            std::cout<<__LINE__<<std::endl;
         }
         else
         {
