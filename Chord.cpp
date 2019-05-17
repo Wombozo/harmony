@@ -208,6 +208,9 @@ Chord::Chord(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
 
 void Chord::findChord(const std::vector<Note *> &notes)
 {
+    if (notes.size() > 5)
+        throw E_CHORD_UNKNOWN;
+    
 }
 
 std::string Chord::displayNotes()

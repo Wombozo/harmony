@@ -3,7 +3,7 @@ CP=g++
 
 all: $(EXE)
 
-$(EXE): main.o err.o n.o nn.o an.o sn.o fn.o ssn.o ffn.o i.o ch.o
+$(EXE): main.o err.o n.o nn.o an.o sn.o fn.o ssn.o ffn.o i.o ch.o sc.o
 	$(CP) -o $@ $^
 
 main.o: main.cpp
@@ -37,6 +37,9 @@ i.o: Interval.cpp
 	$(CP) -o $@ -c $<
 
 ch.o: Chord.cpp
+	$(CP) -o $@ -c $<
+
+sc.o: Scale.cpp
 	$(CP) -o $@ -c $<
 
 .SILENT: clean
