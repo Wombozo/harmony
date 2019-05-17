@@ -10,6 +10,8 @@ class Chord
 {
 private:
     Note *root;
+    //TODO
+    Note *bass;
     int nb;
     std::string name;
     std::vector<Interval> intervals;
@@ -23,6 +25,8 @@ public:
     ~Chord();
     std::string getName(void);
     std::vector<Note *> getNotes;
+    //TODO
+    void findChord(const std::vector<Note*>&);
 
     std::string displayNotes(void);
 };

@@ -180,6 +180,11 @@ Chord::Chord(Note *n, std::string str) : root(n), name(str)
     }
 }
 
+void Chord::findChord(const std::vector<Note*> &notes)
+{
+
+}
+
 std::string Chord::displayNotes()
 {
     std::string str;
