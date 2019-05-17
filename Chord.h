@@ -4,7 +4,6 @@
 #include "Note.h"
 #include "Interval.h"
 #include <vector>
-#include <tuple>
 
 class Chord
 {
