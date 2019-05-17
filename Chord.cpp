@@ -8,7 +8,11 @@
 void Chord::setNotes()
 {
     root->getNatural()->sort();
-    notes.push_back(root);
+    notes.push_back(bass);
+    if (root != bass)
+    {
+        notes.push_back(root);
+    }
     for (int k = 0; k < intervals.size(); k++)
     {
         int type = intervals.at(k).getType();
@@ -54,7 +58,11 @@ void Chord::setNotes()
     }
 }
 
-Chord::Chord(Note *n, const std::string &str) : root(n)
+Chord::Chord(Note *n, const std::string &str) : Chord(n, str, n)
+{
+}
+
+Chord::Chord(Note *n, const std::string &str, Note *b) : root(n), bass(b)
 {
     intervals.clear();
     if (!str.compare(""))
@@ -178,12 +186,15 @@ Chord::Chord(Note *n, const std::string &str) : root(n)
     {
         throw E_CHORD_UNKNOWN;
     }
-    name = n->display()+str;
+    name = n->display() + str;
+    if (root != bass)
+    {
+        name += "/" + bass->display();
+    }
 }
 
-void Chord::findChord(const std::vector<Note*> &notes)
+void Chord::findChord(const std::vector<Note *> &notes)
 {
-
 }
 
 std::string Chord::displayNotes()
