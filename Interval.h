@@ -3,9 +3,9 @@
 class Interval
 {
 private:
+    std::string name;
     int type;
     int semitones;
-    std::string name;
 
 public:
     Interval(std::string str);

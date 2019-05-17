@@ -18,10 +18,11 @@ class Note
 {
 public:
     static void initialize(void);
+
     virtual std::string display(void) = 0;
     virtual int semiToneShift(void) = 0;
     virtual NaturalNote *getNatural(void) = 0;
-    virtual int getNextSTNatural(void) { return 0; }
+    virtual ~Note(){};
 };
 
 #endif

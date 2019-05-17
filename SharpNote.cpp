@@ -1,9 +1,8 @@
 #include "SharpNote.h"
 
-SharpNote::SharpNote(NaturalNote *n, DblSharpNote *sharp)
+SharpNote::SharpNote(NaturalNote *n, DblSharpNote *s) : sharp(s)
 {
-    setNatural(n);
-    this->sharp = sharp;
+    natural = n;
 }
 
 SharpNote::~SharpNote()

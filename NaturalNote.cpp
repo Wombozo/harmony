@@ -1,5 +1,4 @@
 #include "NaturalNote.h"
-#include "SharpNote.h"
 
 NaturalNote::NaturalNote(const std::string &n, const std::string &fn, int smTN) : name(n), fname(fn), semiToneNext(smTN)
 {

@@ -2,7 +2,7 @@
 
 DblFlatNote::DblFlatNote(NaturalNote *n)
 {
-    setNatural(n);
+    natural = n;
 }
 
 DblFlatNote::~DblFlatNote()

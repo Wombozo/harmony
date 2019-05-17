@@ -1,9 +1,8 @@
 #include "FlatNote.h"
 
-FlatNote::FlatNote(NaturalNote *n, DblFlatNote *flat)
+FlatNote::FlatNote(NaturalNote *n, DblFlatNote *f) : flat(f) 
 {
-    setNatural(n);
-    this->flat = flat;
+    natural = n;
 }
 
 FlatNote::~FlatNote()

@@ -5,11 +5,8 @@
 #include "SharpNote.h"
 #include "FlatNote.h"
 
-//#define I_EQUALS(i, str) (!(intervals.at(i).getName().compare(str)))
-
 void Chord::setNotes()
 {
-    std::cout << root->display() << name << " chord : " << std::endl;
     root->getNatural()->sort();
     notes.push_back(root);
     for (int k = 0; k < intervals.size(); k++)

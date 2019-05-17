@@ -13,6 +13,7 @@ public:
 public:
     SharpNote(NaturalNote *, DblSharpNote *);
     ~SharpNote(void);
+
     std::string display(void);
     int semiToneShift(void);
 };

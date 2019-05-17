@@ -8,11 +8,10 @@
 
 class AlteredNote : public virtual Note
 {
-private:
+public:
     NaturalNote *natural;
 
-protected:
-    void setNatural(NaturalNote *);
+public:
     NaturalNote *getNatural(void);
 };
 

@@ -13,6 +13,7 @@ public:
 public:
     FlatNote(NaturalNote *, DblFlatNote *);
     ~FlatNote(void);
+
     std::string display(void);
     int semiToneShift(void);
 };

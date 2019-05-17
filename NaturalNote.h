@@ -14,25 +14,27 @@ class NaturalNote : public virtual Note
 private:
     std::string name;
     std::string fname;
+    int semiToneOrdered;
+    int semiToneNext;
 
 public:
     NaturalNote *next;
     NaturalNote *previous;
     SharpNote *sn;
     FlatNote *fn;
-    int semiToneOrdered;
-    int semiToneNext;
 
 public:
     NaturalNote(const std::string &, const std::string &, int);
     ~NaturalNote();
-    NaturalNote *getNatural(void);
+
     std::string getName(void);
     std::string getFName(void);
     std::string display(void);
+    NaturalNote *getNatural(void);
+
     int getNextSTNatural(void);
-    void sort();
     int semiToneShift(void);
+    void sort();
 };
 
 #endif

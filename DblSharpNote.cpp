@@ -1,8 +1,8 @@
 #include "DblSharpNote.h"
 
-DblSharpNote::DblSharpNote(NaturalNote *n)
+DblSharpNote::DblSharpNote(NaturalNote *n) 
 {
-    setNatural(n);
+    natural = n;
 }
 
 DblSharpNote::~DblSharpNote()

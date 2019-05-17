@@ -20,10 +20,10 @@ private:
 
 public:
     Chord(Note *, std::string);
-    //    Chord(Note*, std::vector<std::string>);
     ~Chord();
     std::string getName(void);
     std::vector<Note *> getNotes;
+
     std::string displayNotes(void);
 };
 
