@@ -56,13 +56,25 @@ void Chord::setNotes()
         }
         notes.push_back(tmp);
     }
+    if (inversion > notes.size() - 1)
+        throw E_INVERSION;
+    std::rotate(notes.begin(),notes.begin()+inversion,notes.end());
+    name = name + notes.at(0)->display();
 }
 
-Chord::Chord(Note *n, const std::string &str) : Chord(n, str, n)
+Chord::Chord(Note *n, const std::string &str) : Chord(n, str, n, 0)
 {
 }
 
-Chord::Chord(Note *n, const std::string &str, Note *b) : root(n), bass(b)
+Chord::Chord(Note *n, const std::string &str, int inv) : Chord(n, str, n, inv)
+{
+}
+
+Chord::Chord(Note *n, const std::string &str, Note *b) : Chord(n, str, b, 0)
+{
+}
+
+Chord::Chord(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(b), inversion(inv)
 {
     intervals.clear();
     if (!str.compare(""))

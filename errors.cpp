@@ -11,6 +11,9 @@ std::string handle_H_ERR(H_ERR e)
     case E_CHORD_UNKNOWN:
         str = "Unknown chord";
         break;
+    case E_INVERSION:
+        str = "Cannot invert chord";
+        break;
     default:
         str = "Unknown error";
         break;
