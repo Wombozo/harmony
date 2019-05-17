@@ -5,7 +5,7 @@
 
 typedef enum
 {
-    E_INTERVAL, 
+    E_INTERVAL,
     E_CHORD_UNKNOWN
 } H_ERR;
 

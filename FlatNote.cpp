@@ -10,13 +10,12 @@ FlatNote::~FlatNote()
 {
 }
 
-
 std::string FlatNote::display()
 {
-    return getNatural()->display()+"b";
+    return getNatural()->display() + "b";
 }
 
 int FlatNote::semiToneShift()
 {
-    return -1;
+    return 1;
 }

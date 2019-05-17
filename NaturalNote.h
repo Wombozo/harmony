@@ -24,7 +24,7 @@ public:
     int semiToneNext;
 
 public:
-    NaturalNote(const std::string&, const std::string&, int);
+    NaturalNote(const std::string &, const std::string &, int);
     ~NaturalNote();
     NaturalNote *getNatural(void);
     std::string getName(void);

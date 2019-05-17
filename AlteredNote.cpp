@@ -9,4 +9,3 @@ NaturalNote *AlteredNote::getNatural()
 {
     return natural;
 }
-

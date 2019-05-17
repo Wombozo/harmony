@@ -1,6 +1,5 @@
 #include "errors.h"
 
-
 std::string handle_H_ERR(H_ERR e)
 {
     std::string str;

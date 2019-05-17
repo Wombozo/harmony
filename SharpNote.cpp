@@ -12,10 +12,10 @@ SharpNote::~SharpNote()
 
 std::string SharpNote::display()
 {
-    return getNatural()->display()+"#";
+    return getNatural()->display() + "#";
 }
 
 int SharpNote::semiToneShift()
 {
-    return 1;
+    return -1;
 }

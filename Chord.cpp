@@ -28,33 +28,26 @@ void Chord::setNotes()
         FlatNote *ftmp;
         DblSharpNote *sstmp;
         DblFlatNote *fftmp;
-        std::cout<<"ntmp->nextSTNATURAL "<<ntmp->getNextSTNatural()<<std::endl;
-        std::cout<<"stIntervals = "<<rst<<std::endl;
 
         if (rst == root->semiToneShift() + ntmp->getNextSTNatural())
         {
             tmp = (Note *)ntmp;
-            std::cout<<__LINE__<<std::endl;
         }
         else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() + 1)
         {
             tmp = (Note *)ntmp->sn;
-            std::cout<<__LINE__<<std::endl;
         }
         else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 1)
         {
             tmp = (Note *)ntmp->fn;
-            std::cout<<__LINE__<<std::endl;
         }
         else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() + 2)
         {
             tmp = (Note *)ntmp->sn->sharp;
-            std::cout<<__LINE__<<std::endl;
         }
         else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 2)
         {
             tmp = (Note *)ntmp->fn->flat;
-            std::cout<<__LINE__<<std::endl;
         }
         else
         {
@@ -67,13 +60,13 @@ void Chord::setNotes()
 Chord::Chord(Note *n, std::string str) : root(n), name(str)
 {
     intervals.clear();
-    if (!name.compare("major"))
+    if (!name.compare(""))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("perfect fifth"));
         setNotes();
     }
-    else if (!name.compare("minor"))
+    else if (!name.compare("m"))
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("perfect fifth"));

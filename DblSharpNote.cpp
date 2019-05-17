@@ -11,10 +11,10 @@ DblSharpNote::~DblSharpNote()
 
 std::string DblSharpNote::display()
 {
-    return getNatural()->display()+"##";
+    return getNatural()->display() + "##";
 }
 
 int DblSharpNote::semiToneShift()
 {
-    return 2;
+    return -2;
 }

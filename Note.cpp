@@ -111,12 +111,12 @@ void Note::initialize()
     Gs = (Note *)rgs;
 
     Ab = (Note *)rab;
-    Bb = (Note *)rab;
-    Cb = (Note *)rab;
-    Db = (Note *)rab;
-    Eb = (Note *)rab;
-    Fb = (Note *)rab;
-    Gb = (Note *)rab;
+    Bb = (Note *)rbb;
+    Cb = (Note *)rcb;
+    Db = (Note *)rdb;
+    Eb = (Note *)reb;
+    Fb = (Note *)rfb;
+    Gb = (Note *)rgb;
 
     A = (Note *)rA;
     B = (Note *)rB;
