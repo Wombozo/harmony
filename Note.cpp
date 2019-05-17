@@ -34,7 +34,7 @@ void Note::initialize()
     DblFlatNote *rdbb = new DblFlatNote(rD);
     FlatNote *rdb = new FlatNote(rD, rdbb);
     DblSharpNote *rdss = new DblSharpNote(rD);
-    SharpNote *rds = new SharpNote(rA, rdss);
+    SharpNote *rds = new SharpNote(rD, rdss);
 
     NaturalNote *rE = new NaturalNote("E", "Mi", 1);
     DblFlatNote *rebb = new DblFlatNote(rE);

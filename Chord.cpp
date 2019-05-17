@@ -9,56 +9,53 @@
 
 void Chord::setNotes()
 {
-    std::cout << root->display()<<" " << name << " chord : "<< std::endl;
-    std::cout << root->display() << std::endl;
+    std::cout << root->display() << " " << name << " chord : " << std::endl;
     root->getNatural()->sort();
-//    notes.push_back(root);
-//    for (int k = 0; k < intervals.size(); k++)
-//    {
-//        int type = intervals.at(k).getType();
-//        int rst = intervals.at(k).getSemiTones();
-//        Note *tmp;
-//        // Get the natural note
-//        NaturalNote *ntmp = root->getNatural();
-//        for (int i = 0; i < type - 1; i++)
-//        {
-//            ntmp = ntmp->next;
-//        }
-//        // Test for altered notes
-//        SharpNote *stmp;
-//        FlatNote *ftmp;
-//        DblSharpNote *sstmp;
-//        DblFlatNote *fftmp;
-//        std::cout << "Natural note : "<<ntmp->display() << std::endl;
-//        std::cout << "Sharped note : "<<ntmp->sn->display() << std::endl;
-//
-//        if (rst == ntmp->getNextSTNatural())
-//        {
-//            tmp = (Note *)ntmp;
-//        }
-//        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 1)
-//        { 
-//            tmp = (Note *) ntmp->sn;
-//        }
-//        else if (rst == ntmp->getNextSTNatural() + 1)
-//        {
-//            tmp = (Note *) ntmp->fn;
-//        }
-//        else if (rst == ntmp->getNextSTNatural() - 2)
-//        {
-//            tmp = (Note *) ntmp->sn->sharp;
-//        }
-//        else if (rst == ntmp->getNextSTNatural() + 2)
-//        {
-//            tmp = (Note *) ntmp->fn->flat;
-//        }
-//        else
-//        {
-//            throw E_CHORD_UNKNOWN;
-//        }
-//        std::cout << tmp->display() << std::endl;
-//        notes.push_back(tmp);
-//    }
+    notes.push_back(root);
+    for (int k = 0; k < intervals.size(); k++)
+    {
+        int type = intervals.at(k).getType();
+        int rst = intervals.at(k).getSemiTones();
+        Note *tmp;
+        // Get the natural note
+        NaturalNote *ntmp = root->getNatural();
+        for (int i = 0; i < type - 1; i++)
+        {
+            ntmp = ntmp->next;
+        }
+        // Test for altered notes
+        SharpNote *stmp;
+        FlatNote *ftmp;
+        DblSharpNote *sstmp;
+        DblFlatNote *fftmp;
+       // std::cout<<"ntmp->nextSTNATURAL "<<ntmp->getNextSTNatural()<<std::endl;
+
+        if (rst == root->semiToneShift() + ntmp->getNextSTNatural())
+        {
+            tmp = (Note *)ntmp;
+        }
+        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() + 1)
+        {
+            tmp = (Note *)ntmp->sn;
+        }
+        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 1)
+        {
+            tmp = (Note *)ntmp->fn;
+        }
+        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() + 2)
+        {
+            tmp = (Note *)ntmp->sn->sharp;
+        }
+        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 2)
+        {
+            tmp = (Note *)ntmp->fn->flat;
+        }
+        else
+        {
+            throw E_CHORD_UNKNOWN;
+        }
+        notes.push_back(tmp);
+    }
 }
 
 Chord::Chord(Note *n, std::string str) : root(n), name(str)
@@ -185,6 +182,16 @@ Chord::Chord(Note *n, std::string str) : root(n), name(str)
     {
         throw E_CHORD_UNKNOWN;
     }
+}
+
+std::string Chord::displayNotes()
+{
+    std::string str;
+    for (int i = 0; i < notes.size(); i++)
+    {
+        str += notes.at(i)->display() + " ";
+    }
+    return str;
 }
 
 Chord::~Chord()

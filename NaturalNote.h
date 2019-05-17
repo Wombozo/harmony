@@ -3,7 +3,7 @@
 
 #include "Note.h"
 
-#define BASE_ST 2
+#define BASE_ST 0
 
 class SharpNote;
 class FlatNote;
@@ -30,9 +30,9 @@ public:
     std::string getName(void);
     std::string getFName(void);
     std::string display(void);
-    int semiToneShift(void);
     int getNextSTNatural(void);
     void sort();
+    int semiToneShift(void);
 };
 
 #endif
