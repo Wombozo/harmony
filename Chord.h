@@ -20,7 +20,7 @@ private:
     void setNotes(void);
 
 public:
-    Chord(Note *, std::string);
+    Chord(Note *, const std::string&);
     ~Chord();
     std::string getName(void);
     std::vector<Note *> getNotes;

@@ -54,7 +54,7 @@ void Chord::setNotes()
     }
 }
 
-Chord::Chord(Note *n, std::string str) : root(n)
+Chord::Chord(Note *n, const std::string &str) : root(n)
 {
     intervals.clear();
     if (!str.compare(""))
