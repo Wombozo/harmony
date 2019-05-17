@@ -31,7 +31,6 @@ public:
     std::string display(void);
     int semiToneCount(void);
     void sort();
-    int gS();
 };
 
 #endif

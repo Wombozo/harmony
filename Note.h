@@ -22,7 +22,6 @@ public:
     virtual int semiToneCount(void) = 0;
     static void initialize(void);
     virtual NaturalNote *getNatural(void) = 0;
-    virtual int gS(){return 0;};
 };
 
 #endif
