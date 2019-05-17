@@ -54,120 +54,120 @@ void Chord::setNotes()
     }
 }
 
-Chord::Chord(Note *n, std::string str) : root(n), name(str)
+Chord::Chord(Note *n, std::string str) : root(n)
 {
     intervals.clear();
-    if (!name.compare(""))
+    if (!str.compare(""))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("perfect fifth"));
         setNotes();
     }
-    else if (!name.compare("m"))
+    else if (!str.compare("m"))
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("perfect fifth"));
         setNotes();
     }
-    else if (!name.compare("diminished"))
+    else if (!str.compare("diminished"))
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("diminished fifth"));
         setNotes();
     }
-    else if (!name.compare("augmented"))
+    else if (!str.compare("augmented"))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("augmented fifth"));
         setNotes();
     }
-    else if (!name.compare("sus4"))
+    else if (!str.compare("sus4"))
     {
         intervals.push_back(Interval("perfect fourth"));
         intervals.push_back(Interval("perfect fifth"));
         setNotes();
     }
-    else if (!name.compare("sus2"))
+    else if (!str.compare("sus2"))
     {
         intervals.push_back(Interval("major second"));
         intervals.push_back(Interval("perfect fifth"));
         setNotes();
     }
-    else if (!name.compare("m7"))
+    else if (!str.compare("m7"))
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("perfect fifth"));
         intervals.push_back(Interval("minor seventh"));
         setNotes();
     }
-    else if (!name.compare("7"))
+    else if (!str.compare("7"))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("perfect fifth"));
         intervals.push_back(Interval("minor seventh"));
         setNotes();
     }
-    else if (!name.compare("maj7"))
+    else if (!str.compare("maj7"))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("perfect fifth"));
         intervals.push_back(Interval("major seventh"));
         setNotes();
     }
-    else if (!name.compare("minmaj7"))
+    else if (!str.compare("minmaj7"))
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("perfect fifth"));
         intervals.push_back(Interval("major seventh"));
         setNotes();
     }
-    else if (!name.compare("6"))
+    else if (!str.compare("6"))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("perfect fifth"));
         intervals.push_back(Interval("major sixth"));
     }
-    else if (!name.compare("m6"))
+    else if (!str.compare("m6"))
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("perfect fifth"));
         intervals.push_back(Interval("major sixth"));
     }
-    else if (!name.compare("7b5"))
+    else if (!str.compare("7b5"))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("diminished fifth"));
         intervals.push_back(Interval("minor seventh"));
         setNotes();
     }
-    else if (!name.compare("dim7"))
+    else if (!str.compare("dim7"))
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("diminished fifth"));
         intervals.push_back(Interval("diminished seventh"));
         setNotes();
     }
-    else if (!name.compare("m7b5"))
+    else if (!str.compare("m7b5"))
     {
         intervals.push_back(Interval("minor third"));
         intervals.push_back(Interval("diminished fifth"));
         intervals.push_back(Interval("minor seventh"));
         setNotes();
     }
-    else if (!name.compare("Ger6"))
+    else if (!str.compare("Ger6"))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("perfect fifth"));
         intervals.push_back(Interval("augmented sixth"));
         setNotes();
     }
-    else if (!name.compare("It6"))
+    else if (!str.compare("It6"))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("augmented sixth"));
         setNotes();
     }
-    else if (!name.compare("Fr6"))
+    else if (!str.compare("Fr6"))
     {
         intervals.push_back(Interval("major third"));
         intervals.push_back(Interval("diminished fifth"));
@@ -178,6 +178,7 @@ Chord::Chord(Note *n, std::string str) : root(n), name(str)
     {
         throw E_CHORD_UNKNOWN;
     }
+    name = n->display()+str;
 }
 
 void Chord::findChord(const std::vector<Note*> &notes)
