@@ -58,8 +58,7 @@ void Chord::setNotes()
     }
     if (inversion > notes.size() - 1)
         throw E_INVERSION;
-    std::rotate(notes.begin(),notes.begin()+inversion,notes.end());
-    name = name + notes.at(0)->display();
+    std::rotate(notes.begin(), notes.begin() + inversion, notes.end());
 }
 
 Chord::Chord(Note *n, const std::string &str) : Chord(n, str, n, 0)
@@ -203,6 +202,8 @@ Chord::Chord(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
     {
         name += "/" + bass->display();
     }
+    if (inversion)
+        name += "/" + notes.at(0)->display();
 }
 
 void Chord::findChord(const std::vector<Note *> &notes)
