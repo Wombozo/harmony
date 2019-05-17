@@ -106,6 +106,13 @@ Chord::Chord(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
         intervals.push_back(Interval("perfect fifth"));
         setNotes();
     }
+    else if (!str.compare("7sus4"))
+    {
+        intervals.push_back(Interval("perfect fourth"));
+        intervals.push_back(Interval("perfect fifth"));
+        intervals.push_back(Interval("minor seventh"));
+        setNotes();
+    }
     else if (!str.compare("sus2"))
     {
         intervals.push_back(Interval("major second"));
