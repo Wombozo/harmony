@@ -10,35 +10,35 @@
 void Chord::setNotes()
 {
     root->getNatural()->sort();
- //   std::cout << root->display() << " chord :"<< std::endl;
- //   notes.push_back(root);
- //   for (int k = 0; k < intervals.size(); k++)
- //   {
- //       int type = intervals.at(k).getType();
- //       int rst = intervals.at(k).getSemiTones();
- //       Note *tmp;
- //       // Get the natural note
- //       NaturalNote *ntmp = root->getNatural();
- //       for (int i = 0; i < type - 1; i++)
- //       {
- //           ntmp = ntmp->following;
- //       }
- //       // Test for altered notes
- //       SharpNote *stmp;
- //       FlatNote *ftmp;
- //       DblSharpNote *sstmp;
- //       DblFlatNote *fftmp;
- //       if (rst = nb - 2)
- //       {
- //           tmp = (Note *)sstmp;
- //       }
- //       else
- //       {
- //           throw E_CHORD_UNKNOWN;
- //       }
- //       //std::cout << tmp->display() << std::endl;
- //       notes.push_back(tmp);
-//    }
+    std::cout << root->display() << " chord :"<< std::endl;
+    notes.push_back(root);
+    for (int k = 0; k < intervals.size(); k++)
+    {
+        int type = intervals.at(k).getType();
+        int rst = intervals.at(k).getSemiTones();
+        Note *tmp;
+        // Get the natural note
+        NaturalNote *ntmp = root->getNatural();
+        for (int i = 0; i < type - 1; i++)
+        {
+            ntmp = ntmp->following;
+        }
+        // Test for altered notes
+        SharpNote *stmp;
+        FlatNote *ftmp;
+        DblSharpNote *sstmp;
+        DblFlatNote *fftmp;
+        if (rst = ntmp->getNextSTNatural())
+        {
+            tmp = (Note *)ntmp;
+        }
+        else
+        {
+            throw E_CHORD_UNKNOWN;
+        }
+        std::cout << tmp->display() << std::endl;
+        notes.push_back(tmp);
+    }
 }
 
 Chord::Chord(Note *n, std::string str) : root(n), name(str)

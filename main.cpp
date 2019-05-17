@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     {
     //    Chord c1(C, "minor");
     //    Chord c2(A, "major");
-        Chord c3(A, "major");
+        Chord c3(B, "major");
 //        E->rotateST();
     //    std::cout<<" NEXT " <<std::endl;
     //    Chord c4(A, "7");

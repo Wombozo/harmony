@@ -14,7 +14,6 @@ extern Note *As, *Bs, *Cs, *Ds, *Es, *Fs, *Gs;
 extern Note *Abb, *Bbb, *Cbb, *Dbb, *Ebb, *Fbb, *Gbb;
 extern Note *Ass, *Bss, *Css, *Dss, *Ess, *Fss, *Gss;
 
-
 class Note
 {
 public:
@@ -22,6 +21,7 @@ public:
     virtual int semiToneCount(void) = 0;
     static void initialize(void);
     virtual NaturalNote *getNatural(void) = 0;
+    virtual int getNextSTNatural(void) { return 0; }
 };
 
 #endif

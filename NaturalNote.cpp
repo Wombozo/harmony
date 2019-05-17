@@ -38,16 +38,20 @@ NaturalNote *NaturalNote::getNatural()
     return this;
 }
 
+int NaturalNote::getNextSTNatural()
+{
+    return interSTNext;
+}
+
 void NaturalNote::sort()
 {
-    tmpST = 2;
+    interSTNext = 2;
     NaturalNote *tmp = this;
+   // std::cout << tmp->display() << tmp->semiToneNext << " ";
     do
     {
-        tmp->tmpST = tmp->tmpST + tmp->semiToneNext;
-        std::cout<< tmp->tmpST + tmp->semiToneNext<<std::endl;
+        tmp->following->interSTNext = tmp->interSTNext + tmp->semiToneNext;
         tmp = tmp->following;
-        std::cout<<tmp->display()<<tmp->tmpST<< " ";
-        std::cout << tmp->semiToneNext<<std::endl;
-    }while (tmp->following != this);
+    //    std::cout << tmp->display() << tmp->interSTNext << " ";
+    } while (tmp->following != this);
 }
