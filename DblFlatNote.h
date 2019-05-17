@@ -9,7 +9,7 @@ public:
     DblFlatNote(NaturalNote *);
     ~DblFlatNote(void);
     std::string display(void);
-    int semiToneCount(void);
+    int semiToneShift(void);
 };
 
 #endif

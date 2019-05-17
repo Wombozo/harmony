@@ -18,7 +18,7 @@ class Note
 {
 public:
     virtual std::string display(void) = 0;
-    virtual int semiToneCount(void) = 0;
+    virtual int semiToneShift(void) = 0;
     static void initialize(void);
     virtual NaturalNote *getNatural(void) = 0;
     virtual int getNextSTNatural(void) { return 0; }

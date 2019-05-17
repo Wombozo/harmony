@@ -14,7 +14,7 @@ public:
     SharpNote(NaturalNote *, DblSharpNote *);
     ~SharpNote(void);
     std::string display(void);
-    int semiToneCount(void);
+    int semiToneShift(void);
 };
 
 #endif

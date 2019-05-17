@@ -9,8 +9,9 @@
 
 void Chord::setNotes()
 {
+    std::cout << root->display()<< name << " chord : "<< std::endl;
+    std::cout << root->display() << std::endl;
     root->getNatural()->sort();
-    std::cout << root->display() << " chord :"<< std::endl;
     notes.push_back(root);
     for (int k = 0; k < intervals.size(); k++)
     {
@@ -21,16 +22,35 @@ void Chord::setNotes()
         NaturalNote *ntmp = root->getNatural();
         for (int i = 0; i < type - 1; i++)
         {
-            ntmp = ntmp->following;
+            ntmp = ntmp->next;
         }
         // Test for altered notes
         SharpNote *stmp;
         FlatNote *ftmp;
         DblSharpNote *sstmp;
         DblFlatNote *fftmp;
-        if (rst = ntmp->getNextSTNatural())
+        std::cout << "Natural note : "<<ntmp->display() << std::endl;
+        std::cout << "Sharped note : "<<ntmp->sn->display() << std::endl;
+
+        if (rst == ntmp->getNextSTNatural())
         {
             tmp = (Note *)ntmp;
+        }
+        else if (rst == root->semiToneCount() + ntmp->getNextSTNatural() - 1)
+        { 
+            tmp = (Note *) ntmp->sn;
+        }
+        else if (rst == ntmp->getNextSTNatural() + 1)
+        {
+            tmp = (Note *) ntmp->fn;
+        }
+        else if (rst == ntmp->getNextSTNatural() - 2)
+        {
+            tmp = (Note *) ntmp->sn->sharp;
+        }
+        else if (rst == ntmp->getNextSTNatural() + 2)
+        {
+            tmp = (Note *) ntmp->fn->flat;
         }
         else
         {

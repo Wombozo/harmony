@@ -15,7 +15,7 @@ std::string SharpNote::display()
     return getNatural()->display()+"#";
 }
 
-int SharpNote::semiToneCount()
+int SharpNote::semiToneShift()
 {
     return 1;
 }

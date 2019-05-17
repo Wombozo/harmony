@@ -3,6 +3,8 @@
 
 #include "Note.h"
 
+#define BASE_ST 2
+
 class SharpNote;
 class FlatNote;
 
@@ -12,11 +14,11 @@ class NaturalNote : public virtual Note
 private:
     std::string name;
     std::string fname;
-    int interSTNext;
+    int semiToneFollowing;
 
 public:
-    NaturalNote *following;
-    NaturalNote *preceding;
+    NaturalNote *next;
+    NaturalNote *previous;
     SharpNote *sn;
     FlatNote *fn;
     int semiToneNext;
@@ -28,7 +30,7 @@ public:
     std::string getName(void);
     std::string getFName(void);
     std::string display(void);
-    int semiToneCount(void);
+    int semiToneShift(void);
     int getNextSTNatural(void);
     void sort();
 };

@@ -54,21 +54,21 @@ void Note::initialize()
     DblSharpNote *rgss = new DblSharpNote(rG);
     SharpNote *rgs = new SharpNote(rG, rgss);
 
-    rA->following = rB;
-    rB->following = rC;
-    rC->following = rD;
-    rD->following = rE;
-    rE->following = rF;
-    rF->following = rG;
-    rG->following = rA;
+    rA->next = rB;
+    rB->next = rC;
+    rC->next = rD;
+    rD->next = rE;
+    rE->next = rF;
+    rF->next = rG;
+    rG->next = rA;
 
-    rA->preceding = rG;
-    rB->preceding = rA;
-    rC->preceding = rB;
-    rD->preceding = rC;
-    rE->preceding = rD;
-    rF->preceding = rE;
-    rG->preceding = rF;
+    rA->previous = rG;
+    rB->previous = rA;
+    rC->previous = rB;
+    rD->previous = rC;
+    rE->previous = rD;
+    rF->previous = rE;
+    rG->previous = rF;
 
     rA->sn = ras;
     rB->sn = rbs;

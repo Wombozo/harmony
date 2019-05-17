@@ -13,7 +13,7 @@ std::string DblFlatNote::display()
     return getNatural()->display()+"bb";
 }
 
-int DblFlatNote::semiToneCount()
+int DblFlatNote::semiToneShift()
 {
     return -2;
 }

@@ -28,7 +28,7 @@ std::string NaturalNote::display()
     return getName();
 }
 
-int NaturalNote::semiToneCount()
+int NaturalNote::semiToneShift()
 {
     return 0;
 }
@@ -40,18 +40,10 @@ NaturalNote *NaturalNote::getNatural()
 
 int NaturalNote::getNextSTNatural()
 {
-    return interSTNext;
+    return semiToneFollowing;;
 }
 
 void NaturalNote::sort()
 {
-    interSTNext = 2;
-    NaturalNote *tmp = this;
-   // std::cout << tmp->display() << tmp->semiToneNext << " ";
-    do
-    {
-        tmp->following->interSTNext = tmp->interSTNext + tmp->semiToneNext;
-        tmp = tmp->following;
-    //    std::cout << tmp->display() << tmp->interSTNext << " ";
-    } while (tmp->following != this);
+    
 }
