@@ -6,14 +6,11 @@ int main(int argc, char *argv[])
     Note::initialize();
     try
     {
-    //    Chord c1(C, "minor");
-    //    Chord c2(A, "major");
-        Chord c3(B, "major");
-//        E->rotateST();
-    //    std::cout<<" NEXT " <<std::endl;
-    //    Chord c4(A, "7");
-    //    Chord c5(F, "major");
-    //    Chord c6(G, "augmented");
+        Chord c1(B, "major");
+        Chord c2(C, "major");
+        Chord c3(Gs, "major");
+        Chord c4(Bb, "major");
+        Chord c5(E, "major");
     }
     catch (H_ERR err)
     {

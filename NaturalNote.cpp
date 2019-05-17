@@ -1,12 +1,7 @@
 #include "NaturalNote.h"
 
-NaturalNote::NaturalNote(std::string name, std::string fname, int semiToneNext)
+NaturalNote::NaturalNote(const std::string &n, const std::string &fn, int smTN) : name(n), fname(fn), semiToneNext(smTN) 
 {
-    this->name = name;
-    this->fname = fname;
-    this->semiToneNext = semiToneNext;
-    this->sn = sn;
-    this->fn = fn;
 }
 
 NaturalNote::~NaturalNote()
@@ -40,10 +35,20 @@ NaturalNote *NaturalNote::getNatural()
 
 int NaturalNote::getNextSTNatural()
 {
-    return semiToneFollowing;;
+    return semiToneOrdered;
 }
 
 void NaturalNote::sort()
 {
-    
+    semiToneOrdered = BASE_ST;
+    std::cout<<this->display()<<this->semiToneOrdered << " ";
+    NaturalNote *nTmp = this;
+    do 
+    {
+    nTmp->next->semiToneOrdered = nTmp->semiToneNext + nTmp->semiToneOrdered;
+    nTmp = nTmp->next;
+    std::cout<<nTmp->display()<<nTmp->semiToneOrdered<< " ";
+
+    } while (nTmp != this->previous);
+    std::cout<<std::endl;
 }
