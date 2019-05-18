@@ -13,47 +13,10 @@ void Chord::setNotes()
     {
         notes.push_back(root);
     }
+    Note *tmp;
     for (int k = 0; k < intervals.size(); k++)
     {
-        int type = intervals.at(k).getType();
-        int rst = intervals.at(k).getSemiTones();
-        Note *tmp;
-        // Get the natural note
-        NaturalNote *ntmp = root->getNatural();
-        for (int i = 0; i < type - 1; i++)
-        {
-            ntmp = ntmp->next;
-        }
-        // Test for altered notes
-        SharpNote *stmp;
-        FlatNote *ftmp;
-        DblSharpNote *sstmp;
-        DblFlatNote *fftmp;
-
-        if (rst == root->semiToneShift() + ntmp->getNextSTNatural())
-        {
-            tmp = (Note *)ntmp;
-        }
-        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() + 1)
-        {
-            tmp = (Note *)ntmp->sn;
-        }
-        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 1)
-        {
-            tmp = (Note *)ntmp->fn;
-        }
-        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() + 2)
-        {
-            tmp = (Note *)ntmp->sn->sharp;
-        }
-        else if (rst == root->semiToneShift() + ntmp->getNextSTNatural() - 2)
-        {
-            tmp = (Note *)ntmp->fn->flat;
-        }
-        else
-        {
-            throw E_CHORD_UNKNOWN;
-        }
+        tmp = intervals.at(k).getNextSorted(root);
         notes.push_back(tmp);
     }
     if (inversion > notes.size() - 1)

@@ -13,4 +13,6 @@ public:
     std::string getName(void);
     int getType(void);
     int getSemiTones(void);
+    Note* getNext(Note*);
+    Note* getNextSorted(Note*);
 };

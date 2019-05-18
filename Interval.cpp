@@ -1,4 +1,58 @@
 #include "Interval.h"
+#include "NaturalNote.h"
+#include "DblFlatNote.h"
+#include "DblSharpNote.h"
+#include "SharpNote.h"
+#include "FlatNote.h"
+
+Note *Interval::getNext(Note *a)
+{
+    NaturalNote *ntmp = a->getNatural();
+    ntmp->sort();
+    getNextSorted(a);
+}
+Note *Interval::getNextSorted(Note *a)
+{
+
+    Note *tmp;
+    // Get the natural note
+    NaturalNote *ntmp = a->getNatural();
+    for (int i = 0; i < type - 1; i++)
+    {
+        ntmp = ntmp->next;
+    }
+    // Test for altered notes
+    SharpNote *stmp;
+    FlatNote *ftmp;
+    DblSharpNote *sstmp;
+    DblFlatNote *fftmp;
+
+    if (getSemiTones() == a->semiToneShift() + ntmp->getNextSTNatural())
+    {
+        tmp = (Note *)ntmp;
+    }
+    else if (getSemiTones() == a->semiToneShift() + ntmp->getNextSTNatural() + 1)
+    {
+        tmp = (Note *)ntmp->sn;
+    }
+    else if (getSemiTones() == a->semiToneShift() + ntmp->getNextSTNatural() - 1)
+    {
+        tmp = (Note *)ntmp->fn;
+    }
+    else if (getSemiTones() == a->semiToneShift() + ntmp->getNextSTNatural() + 2)
+    {
+        tmp = (Note *)ntmp->sn->sharp;
+    }
+    else if (getSemiTones() == a->semiToneShift() + ntmp->getNextSTNatural() - 2)
+    {
+        tmp = (Note *)ntmp->fn->flat;
+    }
+    else
+    {
+        throw E_INTERVAL;
+    }
+    return tmp;
+}
 
 Interval::Interval(std::string str)
 {

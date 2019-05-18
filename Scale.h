@@ -10,7 +10,10 @@ public:
     std::vector<Interval> intervals;
     std::vector<Note*> notes;
 
+private:
+    void setNotes(void);
 public:
     Scale(Note *, const std::string &name);
     ~Scale();
+    std::string display(void);
 };
