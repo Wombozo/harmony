@@ -3,3 +3,7 @@
 ## Compiling
 
 run `make`
+
+## Running
+
+run `./harmony`
