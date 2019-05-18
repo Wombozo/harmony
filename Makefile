@@ -1,56 +1,52 @@
 EXE= harmony
 CP=g++
 
+SRC_PATH = src
+OBJ_PATH = obj
+CPPFLAGS = -Iinclude
+
+SRC_FILES = main.cpp \
+            Note.cpp \
+			errors.cpp \
+			NaturalNote.cpp \
+			AlteredNote.cpp \
+			SharpNote.cpp \
+			FlatNote.cpp \
+			DblFlatNote.cpp \
+			DblSharpNote.cpp \
+			Interval.cpp \
+			Scale.cpp \
+			Mode.cpp \
+			utils.cpp  \
+			user.cpp 
+
+OBJ_NAME = $(SRC_FILES:.cpp=.o)
+
+SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
+
+GREEN = \033[0;32m
+RED = \033[0;31m
+WHITE = \033[0m
+
+
 all: $(EXE)
 
-$(EXE): main.o err.o n.o nn.o an.o sn.o fn.o ssn.o ffn.o i.o ch.o sc.o mode.o utils.o user.o
+$(EXE): $(OBJ)
+	@$(CP) $@ $(OBJ) && echo "\n$(GREEN)$@ Successfully created$(WHITE)"
+
 	$(CP) -o $@ $^
 
-main.o: main.cpp
-	$(CP) -o $@ -c $<
+$(OBJ_PATH)/%.o: src/%.cpp
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CP) $(CPPFLAGS) -o $@ -c $<
+	@echo "$(GREEN)$@$(WHITE)"
 
-n.o: Note.cpp
-	$(CP) -o $@ -c $<
-
-err.o: errors.cpp
-	$(CP) -o $@ -c $<
-
-nn.o: NaturalNote.cpp
-	$(CP) -o $@ -c $<
-
-an.o: AlteredNote.cpp
-	$(CP) -o $@ -c $<
-
-sn.o: SharpNote.cpp
-	$(CP) -o $@ -c $<
-
-fn.o: FlatNote.cpp
-	$(CP) -o $@ -c $<
-
-ssn.o: DblSharpNote.cpp
-	$(CP) -o $@ -c $<
-
-ffn.o: DblFlatNote.cpp
-	$(CP) -o $@ -c $<
-
-i.o: Interval.cpp
-	$(CP) -o $@ -c $<
-
-ch.o: Chord.cpp
-	$(CP) -o $@ -c $<
-
-sc.o: Scale.cpp
-	$(CP) -o $@ -c $<
-
-mode.o: Mode.cpp
-	$(CP) -o $@ -c $<
-
-user.o: user.cpp
-	$(CP) -o $@ -c $<
-
-utils.o: utils.cpp
-	$(CP) -o $@ -c $<
-
-.SILENT: clean
 clean:
-	rm *.o
+	@rm -f $(OBJ) && echo "$(RED)objects successfully deleted$(WHITE)"
+	@rmdir $(OBJ_PATH) 2> /dev/null || true
+
+Eclean : clean
+	@rm -f $(EXE) && echo "$(RED)$(NAME) deleted$(WHITE)"
+
+.PHONY : all clean Eclean
