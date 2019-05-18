@@ -1,4 +1,4 @@
-# HARMONY PROJECT
+# HARMONY PROJECT
 
 ## Compiling
 
