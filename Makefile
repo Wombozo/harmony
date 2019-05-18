@@ -1,4 +1,4 @@
-EXE= exe
+EXE= harmony
 CP=g++
 
 all: $(EXE)
