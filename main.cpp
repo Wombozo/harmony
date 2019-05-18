@@ -1,19 +1,16 @@
-#include "Note.h"
-#include "Chord.h"
+#include "user.h"
 
 int main(int argc, char *argv[])
 {
     Note::initialize();
     try
     {
-        Chord c(Cs, "m7b5");
-        std::cout<<"Chord " << c.getName() << " : " << c.displayNotes()<<std::endl;
-        Chord cb(C,"Ger6",G);
-        std::cout<<"Chord " << cb.getName() << " : " << cb.displayNotes()<<std::endl;
-        Chord ci(Ab,"m7",2);
-        std::cout<<"Chord " << ci.getName() << " : " << ci.displayNotes()<<std::endl;
-        Chord ce(Ab,"dim7",2);
-        std::cout<<"Chord " << ce.getName() << " : " << ce.displayNotes()<<std::endl;
+        std::cout << "// WELCOME TO HARMONY ANALYSER \\" << std::endl;
+        std::cout << "This software has many features and will be improved by time. "
+                     "Please use 'git pull' each time you want to use it to keep you updated."
+                  << std::endl;
+        help();
+        interact();
     }
     catch (H_ERR err)
     {

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "errors.h"
 
 class NaturalNote;
@@ -14,11 +15,12 @@ extern Note *As, *Bs, *Cs, *Ds, *Es, *Fs, *Gs;
 extern Note *Abb, *Bbb, *Cbb, *Dbb, *Ebb, *Fbb, *Gbb;
 extern Note *Ass, *Bss, *Css, *Dss, *Ess, *Fss, *Gss;
 
+extern std::vector<Note *> Notes; 
+
 class Note
 {
 public:
     static void initialize(void);
-
     virtual std::string display(void) = 0;
     virtual int semiToneShift(void) = 0;
     virtual NaturalNote *getNatural(void) = 0;

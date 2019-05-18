@@ -4,11 +4,14 @@
 #include "SharpNote.h"
 #include "FlatNote.h"
 
+
 Note *A, *B, *C, *D, *E, *F, *G;
 Note *Ab, *Bb, *Cb, *Db, *Eb, *Fb, *Gb;
 Note *As, *Bs, *Cs, *Ds, *Es, *Fs, *Gs;
 Note *Abb, *Bbb, *Cbb, *Dbb, *Ebb, *Fbb, *Gbb;
 Note *Ass, *Bss, *Css, *Dss, *Ess, *Fss, *Gss;
+std::vector<Note *> Notes; 
+
 
 void Note::initialize()
 {
@@ -125,4 +128,5 @@ void Note::initialize()
     E = (Note *)rE;
     F = (Note *)rF;
     G = (Note *)rG;
+    Notes = {A, B, C, D, E, F, G, Ab, Bb, Cb, Db, Eb, Fb, Gb, As, Bs, Cs, Ds, Es, Fs, Gs, Abb, Bbb, Cbb, Dbb, Ebb, Fbb, Gbb, Ass, Bss, Css, Dss, Ess, Fss, Gss};
 }

@@ -17,6 +17,8 @@ std::string handle_H_ERR(H_ERR e)
     case E_SCALE_UNKNOWN:
         str = "Unknown scale";
         break;
+    case E_CHOICE:
+        str = "Bad choice";
     default:
         str = "Unknown error";
         break;

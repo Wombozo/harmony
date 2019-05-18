@@ -27,6 +27,16 @@ Scale::Scale(Note *t, const std::string &n) : tonic(t), name(n)
                      Interval("major seventh")};
         setNotes();
     }
+    else if (!n.compare("Minor"))
+    {
+        intervals = {Interval("major second"),
+                     Interval("minor third"),
+                     Interval("perfect fourth"),
+                     Interval("perfect fifth"),
+                     Interval("minor sixth"),
+                     Interval("minor seventh")};
+        setNotes();
+    }
     else
         throw E_SCALE_UNKNOWN;
 }

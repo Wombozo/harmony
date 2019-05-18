@@ -2,7 +2,6 @@
 #define _CHORD
 
 #include "Note.h"
-#include "Interval.h"
 #include <vector>
 #include <algorithm>
 
@@ -12,13 +11,13 @@ private:
     Note *root;
     int nb;
     std::string name;
-    std::vector<Interval> intervals;
-    std::vector<Note *> notes;
     Note *bass;
     int inversion;
 
+public:
+    std::vector<Note *> notes;
+
 private:
-    void setNotes(void);
     Chord(Note *, const std::string &, Note *, int);
 
 public:
@@ -27,7 +26,10 @@ public:
     Chord(Note *, const std::string &, Note *);
     ~Chord();
     std::string getName(void);
-    std::vector<Note *> getNotes;
+    Note *getRoot(void);
+    Note *getBass(void);
+    int getInversion(void);
+
     void findChord(const std::vector<Note *> &);
 
     std::string displayNotes(void);
