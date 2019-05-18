@@ -18,6 +18,7 @@ SRC_FILES = main.cpp \
 			DblSharpNote.cpp \
 			Interval.cpp \
 			Scale.cpp \
+			Chord.cpp \
 			Mode.cpp 
 
 OBJ_NAME = $(SRC_FILES:.cpp=.o)
@@ -32,7 +33,7 @@ WHITE = \033[0m
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	@$(CP) $@ $(OBJ) && echo "\n$(GREEN)$@ Successfully created$(WHITE)"
+	@$(CP) -o $@ $(OBJ) && echo "\n$(GREEN)$@ Successfully created$(WHITE)"
 
 $(OBJ_PATH)/%.o: src/%.cpp
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
