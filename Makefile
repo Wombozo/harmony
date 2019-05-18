@@ -33,7 +33,7 @@ WHITE = \033[0m
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	@$(CP) -o $@ $(OBJ) && echo "\n$(GREEN)$@ Successfully created$(WHITE)"
+	@$(CP) -o $@ $(OBJ) && echo "\n$(GREEN)$@ successfully created.\n\tRun './harmony'$(WHITE)"
 
 $(OBJ_PATH)/%.o: src/%.cpp
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
