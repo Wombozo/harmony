@@ -19,6 +19,8 @@ std::string handle_H_ERR(H_ERR e)
         break;
     case E_CHOICE:
         str = "Bad choice";
+    case E_DEGREE_NOT_FOUND:
+        str = "Degree not found";
     default:
         str = "Unknown error";
         break;

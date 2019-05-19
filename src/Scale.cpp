@@ -41,6 +41,22 @@ Scale::Scale(Note *t, const std::string &n) : tonic(t), name(n)
         throw E_SCALE_UNKNOWN;
 }
 
+int Scale::getDegree(Note *n)
+{
+    int deg = 0;
+    for (auto note : notes)
+    {
+        if (n == note)
+            return deg;
+    }
+    throw E_DEGREE_NOT_FOUND;
+}
+
+Note *Scale::getDegree(int deg)
+{
+    return notes.at(deg);
+}
+
 Scale::~Scale()
 {
 }
