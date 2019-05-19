@@ -25,22 +25,22 @@ static void handle_cd()
 static void handle_sd()
 {
     std::string tonic, scale;
-        do
-        {
-            std::cin.clear();
-            std::cout << "Select the tonic : ";
-            std::cin >> tonic;
-        } while (!valid_user_note_input(tonic));
-        do
-        {
-            std::cin.clear();
-            std::cout << "Select the scale : ";
-            std::cin >> std::ws;
-            std::getline(std::cin, scale);
-        } while (!valid_user_type_scale_input(scale));
-        Note *tmp = u_parse_note(tonic);
-        Scale s(tmp,scale);
-        std::cout << tmp->display() + " scale is : " + s.display() <<std::endl;
+    do
+    {
+        std::cin.clear();
+        std::cout << "Select the tonic : ";
+        std::cin >> tonic;
+    } while (!valid_user_note_input(tonic));
+    do
+    {
+        std::cin.clear();
+        std::cout << "Select the scale : ";
+        std::cin >> std::ws;
+        std::getline(std::cin, scale);
+    } while (!valid_user_type_scale_input(scale));
+    Note *tmp = u_parse_note(tonic);
+    Scale s(tmp, scale);
+    std::cout << tmp->display() + " " + scale + " scale is : " + s.display() << std::endl;
 }
 
 static void handle_id()
@@ -82,17 +82,20 @@ void handle_choice(int c)
     }
 }
 
-void interact()
+void interact(int c)
 {
     std::cout << std::endl;
     int choice;
-    do
-    {
-        std::cout << "Select which feature you want to use (ex : 2) or '-1' to see features : " << std::endl;
-        std::cin >> choice;
-        if (choice == -1)
-            help();
-    } while (!std::cin || choice > 3 || choice < 0);
+    if (!c)
+        do
+        {
+            std::cout << "Select which feature you want to use (ex : 2) or '-1' to see features : " << std::endl;
+            std::cin >> choice;
+            if (choice == -1)
+                help();
+        } while (!std::cin || choice > 3 || choice < 0);
+    else
+        choice = c;
     handle_choice(choice);
 }
 

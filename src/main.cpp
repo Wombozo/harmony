@@ -1,4 +1,5 @@
 #include "user.h"
+#include <sstream>
 
 int main(int argc, char *argv[])
 {
@@ -9,8 +10,23 @@ int main(int argc, char *argv[])
         std::cout << "This software has many features and will be improved by time. "
                      "Please use 'git pull' each time you want to use it to keep you updated."
                   << std::endl;
-        help();
-        interact();
+        if (argc == 2)
+        {
+            std::istringstream ss(argv[1]);
+            int val;
+            if (ss >> val)
+                interact(val);
+            else
+            {
+                help();
+                interact(0);
+            }
+        }
+        else
+        {
+               help();
+               interact(0);
+        }
     }
     catch (H_ERR err)
     {

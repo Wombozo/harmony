@@ -9,4 +9,4 @@
 
 
 void help(void);
-void interact(void);
+void interact(int);
