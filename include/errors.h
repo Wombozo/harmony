@@ -11,6 +11,7 @@ typedef enum
     E_SCALE_UNKNOWN,
     E_CHOICE,
     E_DEGREE_NOT_FOUND,
+    E_TYPE,
 } H_ERR;
 
 std::string handle_H_ERR(H_ERR e);
