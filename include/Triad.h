@@ -13,26 +13,29 @@ private:
     Note *root;
     std::string name;
     Note *bass;
+
+protected:
     int inversion;
 
 public:
-    std::vector<Note*> notes;
+    std::vector<Note *> notes;
 
-private:
+protected:
     Triad(Note *, const std::string &, Note *, int);
+    virtual void setInversion(void);
 
 public:
+    Triad() {}
     Triad(Note *, const std::string &);
     Triad(Note *, const std::string &, int);
     Triad(Note *, const std::string &, Note *);
     ~Triad();
+
     std::string getName(void);
     Note *getRoot(void);
     Note *getBass(void);
-    int getInversion(void);
 
-//    void findTriad(const std::vector<Note *> &);
-
+    //    void findTriad(const std::vector<Note *> &);
     std::string displayNotes(void);
 };
 

@@ -10,6 +10,13 @@
 
 const std::string triads[TRIAD_COUNT] = {"", "m", "aug", "dim", "sus4", "sus2", "b5", "m#5"};
 
+void Triad::setInversion()
+{
+    if (inversion > 2)
+        throw E_INVERSION;
+    std::rotate(notes.begin(), notes.begin() + inversion, notes.end());
+}
+
 static void setNotes(Triad *c, Interval *intervals)
 {
     c->getRoot()->getNatural()->sort();
@@ -24,9 +31,6 @@ static void setNotes(Triad *c, Interval *intervals)
         tmp = intervals[k].getNextSorted(c->getRoot());
         c->notes.push_back(tmp);
     }
-    if (c->getInversion() > c->notes.size() - 1)
-        throw E_INVERSION;
-    std::rotate(c->notes.begin(), c->notes.begin() + c->getInversion(), c->notes.end());
 }
 
 Triad::Triad(Note *n, const std::string &str) : Triad(n, str, n, 0)
@@ -94,6 +98,8 @@ Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
     else
         throw E_CHORD_UNKNOWN;
 
+    setInversion();
+
     name = n->display() + str;
     if (root != bass)
     {
@@ -120,11 +126,6 @@ Triad::~Triad()
 std::string Triad::getName()
 {
     return name;
-}
-
-int Triad::getInversion()
-{
-    return inversion;
 }
 
 Note *Triad::getRoot()
