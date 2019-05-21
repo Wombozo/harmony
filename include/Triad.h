@@ -11,10 +11,10 @@ class Triad
 {
 private:
     Note *root;
-    std::string name;
     Note *bass;
 
 protected:
+    std::string name;
     int inversion;
 
 public:

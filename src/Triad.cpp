@@ -47,6 +47,7 @@ Triad::Triad(Note *n, const std::string &str, Note *b) : Triad(n, str, b, 0)
 
 Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(b), inversion(inv)
 {
+    Interval *intervals;
     if (!str.compare(triads[0]))
     {
         // "" (major)
