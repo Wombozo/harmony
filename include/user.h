@@ -1,3 +1,6 @@
+#ifndef _USER
+#define _USER
+
 #include "Note.h"
 #include "Scale.h"
 #include "Chord.h"
@@ -10,3 +13,5 @@
 
 void help(void);
 void interact(int);
+
+#endif

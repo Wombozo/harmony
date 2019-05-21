@@ -7,7 +7,6 @@ CPPFLAGS = -Iinclude
 
 SRC_FILES = main.cpp \
 			Note.cpp \
-			user.cpp \
 			utils.cpp \
 			errors.cpp \
 			NaturalNote.cpp \
@@ -17,9 +16,8 @@ SRC_FILES = main.cpp \
 			DblFlatNote.cpp \
 			DblSharpNote.cpp \
 			Interval.cpp \
-			Scale.cpp \
 			Chord.cpp \
-			Mode.cpp 
+			Triad.cpp \
 
 OBJ_NAME = $(SRC_FILES:.cpp=.o)
 

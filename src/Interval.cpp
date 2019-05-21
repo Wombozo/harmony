@@ -54,7 +54,7 @@ Note *Interval::getNextSorted(Note *a)
     return tmp;
 }
 
-Interval::Interval(std::string str)
+Interval::Interval(const std::string &str)
 {
     if (!str.compare("minor second"))
     {

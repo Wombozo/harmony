@@ -1,3 +1,6 @@
+#ifndef _SCALE
+#define _SCALE
+
 #include "Note.h"
 #include "Interval.h"
 #include <vector>
@@ -25,6 +28,8 @@ public:
     std::string display(void);
     int getDegree(Note *);
     Note *getDegree(int);
-    template <typename T>
-    Chord getDegreeChord(T);
+    Chord getDegreeChord(Note*);
+    Chord getDegreeChord(int);
 };
+
+#endif

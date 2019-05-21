@@ -1,3 +1,6 @@
+#ifndef _INTERVAL
+#define _INTERVAL
+
 #include "Note.h"
 
 class Interval
@@ -8,7 +11,7 @@ private:
     int semitones;
 
 public:
-    Interval(std::string str);
+    Interval(const std::string &str);
     ~Interval(void);
     std::string getName(void);
     int getType(void);
@@ -16,3 +19,5 @@ public:
     Note* getNext(Note*);
     Note* getNextSorted(Note*);
 };
+
+#endif

@@ -1,3 +1,5 @@
+#ifndef _MODE
+#define _MODE
 #include "Scale.h"
 
 class Mode: public Scale
@@ -10,3 +12,5 @@ class Mode: public Scale
     ~Mode();
 
 };
+
+#endif
