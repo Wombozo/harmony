@@ -103,7 +103,7 @@ Chord::Chord(Note *n, const std::string &str, Note *b, int inv) : bass(b), inver
         else
             throw E_CHORD_UNKNOWN;
         root = t->getRoot();
-        if (inv > 3)
+        if (inv > 3 | inv < 0)
             throw E_INVERSION;
         std::rotate(notes.begin(), notes.begin() + inversion, notes.end());
 

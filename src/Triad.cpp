@@ -100,7 +100,7 @@ Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
     else
         throw E_CHORD_UNKNOWN;
 
-    if (inversion > 2)
+    if (inversion > 2 | inversion < 0)
         throw E_INVERSION;
     std::rotate(notes.begin(), notes.begin() + inversion, notes.end());
 
