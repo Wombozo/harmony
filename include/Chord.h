@@ -3,18 +3,32 @@
 
 #include "Triad.h"
 
-class Chord : public Triad
+class Chord
 {
+private:
+    Note *root;
+    Triad *t;
+    Note *bass;
+    int inversion;
+    std::string name;
+
+public:
+    std::vector<Note *> notes;
+
 private:
     Chord(Note *, const std::string &, Note *, int);
 
 public:
-    Chord(Note *, const std::string &);
-    Chord(Note *, const std::string &, int);
     Chord(Note *, const std::string &, Note *);
+    Chord(Note *, const std::string &, int);
+    Chord(Note *, const std::string &);
     ~Chord();
 
-    void setInversion(void);
+    std::string getName(void);
+    Triad *getTriad(void);
+    Note *getRoot(void);
+
+    std::string displayNotes(void);
 };
 
 #endif

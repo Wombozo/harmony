@@ -6,16 +6,7 @@
 #include "SharpNote.h"
 #include "FlatNote.h"
 
-#define TRIAD_COUNT 8
-
 const std::string triads[TRIAD_COUNT] = {"", "m", "aug", "dim", "sus4", "sus2", "b5", "m#5"};
-
-void Triad::setInversion()
-{
-    if (inversion > 2)
-        throw E_INVERSION;
-    std::rotate(notes.begin(), notes.begin() + inversion, notes.end());
-}
 
 static void setNotes(Triad *c, Interval *intervals)
 {
@@ -99,7 +90,9 @@ Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
     else
         throw E_CHORD_UNKNOWN;
 
-    setInversion();
+    if (inversion > 2)
+        throw E_INVERSION;
+    std::rotate(notes.begin(), notes.begin() + inversion, notes.end());
 
     name = n->display() + str;
     if (root != bass)
@@ -107,7 +100,10 @@ Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
         name += "/" + bass->display();
     }
     if (inversion)
+    {
         name += "/" + notes.at(0)->display();
+        notes.erase(notes.begin()+inversion);
+    }
 }
 
 std::string Triad::displayNotes()
@@ -136,4 +132,9 @@ Note *Triad::getRoot()
 Note *Triad::getBass()
 {
     return bass;
+}
+
+int Triad::getInversion()
+{
+    return inversion;
 }
