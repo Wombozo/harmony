@@ -21,11 +21,14 @@ Chord::Chord(Note *n, const std::string &str, int inv) : Chord(n, str, n, inv)
 Chord::Chord(Note *n, const std::string &str, Note *b) : Chord(n, str, b, 0)
 {
     // Remove the notes if the bass is one of the notes of the chord
-    auto foundIt = std::find(notes.rbegin(), notes.rend(), b);
-    if (foundIt != notes.rend())
-    { 
-        auto toRemove = --(foundIt.base());
-        notes.erase(toRemove);
+    if (b != n)
+    {
+        auto foundIt = std::find(notes.rbegin(), notes.rend(), b);
+        if (foundIt != notes.rend())
+        {
+            auto toRemove = --(foundIt.base());
+            notes.erase(toRemove);
+        }
     }
 }
 

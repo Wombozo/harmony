@@ -34,6 +34,16 @@ Triad::Triad(Note *n, const std::string &str, int inv) : Triad(n, str, n, inv)
 
 Triad::Triad(Note *n, const std::string &str, Note *b) : Triad(n, str, b, 0)
 {
+    // Remove the notes if the bass is one of the notes of the chord
+    if (b != n)
+    {
+        auto foundIt = std::find(notes.rbegin(), notes.rend(), b);
+        if (foundIt != notes.rend())
+        {
+            auto toRemove = --(foundIt.base());
+            notes.erase(toRemove);
+        }
+    }
 }
 
 Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(b), inversion(inv)
@@ -102,7 +112,6 @@ Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
     if (inversion)
     {
         name += "/" + notes.at(0)->display();
-        notes.erase(notes.begin()+inversion);
     }
 }
 
