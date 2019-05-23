@@ -26,9 +26,9 @@ public:
 public:
     Triad() {}
     Triad(Note *, const std::string &);
-    Triad(Note *, std::string , int);
+    Triad(Note *, const std::string &, int);
     Triad(Note *, const std::string &, Note *);
-    Triad(Note *, const std::vector<Interval>&);
+    Triad(Note *, std::vector<Interval>);
     Triad(Note *, const std::string &, Note *, int);
     ~Triad();
 

@@ -47,10 +47,45 @@ Triad::Triad(Note *n, const std::string &str, Note *b) : Triad(n, str, b, 0)
 
 Triad::Triad(Note *n, std::vector<Interval> ints) : intervals(ints), root(n), bass(n), inversion(0)
 {
+    std::string str;
+    if (ints.size() != 2)
+        throw E_CHORD_UNKNOWN;
     if (!ints.at(0).getName().compare("major third") && !ints.at(1).getName().compare("perfect fifth"))
     {
-        name = triads[0];
+        str = triads[0];
     }
+    else if (!ints.at(0).getName().compare("minor third") && !ints.at(1).getName().compare("perfect fifth"))
+    {
+        str = triads[1];
+    }
+    else if (!ints.at(0).getName().compare("major third") && !ints.at(1).getName().compare("augmtented fifth"))
+    {
+        str = triads[2];
+    }
+    else if (!ints.at(0).getName().compare("minor third") && !ints.at(1).getName().compare("diminished fifth"))
+    {
+        str = triads[3];
+    }
+    else if (!ints.at(0).getName().compare("perfect fourth") && !ints.at(1).getName().compare("perfect fifth"))
+    {
+        str = triads[4];
+    }
+    else if (!ints.at(0).getName().compare("major second") && !ints.at(1).getName().compare("perfect fifth"))
+    {
+        str = triads[5];
+    }
+    else if (!ints.at(0).getName().compare("major third") && !ints.at(1).getName().compare("diminished fifth"))
+    {
+        str = triads[6];
+    }
+    else if (!ints.at(0).getName().compare("minor third") && !ints.at(1).getName().compare("augmented fifth"))
+    {
+        str = triads[7];
+    }
+    else
+        throw E_CHORD_UNKNOWN;
+    setNotes(this, &ints);
+    name = n->display() + str;
 }
 
 Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(b), inversion(inv)
