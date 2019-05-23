@@ -27,6 +27,7 @@ public:
     Chord(Note *, const std::string &, Note *);
     Chord(Note *, const std::string &, int);
     Chord(Note *, const std::string &);
+    Chord(Note *, std::vector<Interval>);
     ~Chord();
 
     std::string getName(void);

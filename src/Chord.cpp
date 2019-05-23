@@ -29,6 +29,97 @@ Chord::Chord(Note *n, const std::string &str, Note *b) : Chord(n, str, b, 0)
     }
 }
 
+Chord::Chord(Note *n, std::vector<Interval> ints) : root(n), bass(n), inversion(0)
+{
+    if (ints.size() != 2 && ints.size() != 3)
+        throw E_CHORD_UNKNOWN;
+    t = new Triad(n, ints);
+    if (ints.size() == 2)
+    {
+        name = t->getName();
+        notes = t->notes;
+        intervals = t->getIntervals();
+    }
+    else
+    {
+        std::string str;
+        Interval int4 = ints.at(2);
+        intervals = ints;
+        notes = t->notes;
+        if (!int4.getName().compare("minor seventh"))
+        {
+            notes.push_back(int4.getNextSorted(root));
+            if (!t->getTypeName().compare(""))
+            {
+                // 7
+                str = chords[0];
+            }
+            else if (!t->getTypeName().compare("m"))
+            {
+                // m7
+                str = chords[3];
+            }
+            else if (!t->getTypeName().compare("dim"))
+            {
+                // m7b5
+                str = chords[6];
+            }
+            else
+                throw E_CHORD_UNKNOWN;
+        }
+        else if (!int4.getName().compare("major seventh"))
+        {
+            notes.push_back(int4.getNextSorted(root));
+            if (!t->getTypeName().compare(""))
+            {
+                // maj7
+                str = chords[1];
+            }
+            else if (!t->getTypeName().compare("m"))
+            {
+                // minmaj7
+                str = chords[4];
+            }
+            else if (!t->getTypeName().compare("dim"))
+            {
+                // 7b5
+                str = chords[7];
+            }
+            else
+                throw E_CHORD_UNKNOWN;
+        }
+        else if (!int4.getName().compare("major sixth"))
+        {
+            notes.push_back(int4.getNextSorted(root));
+            if (!t->getTypeName().compare("m"))
+            {
+                // m6
+                str = chords[5];
+            }
+            else if (!t->getTypeName().compare(""))
+            {
+                // 6
+                str = chords[2];
+            }
+            else
+                throw E_CHORD_UNKNOWN;
+        }
+        else if (!int4.getName().compare("diminished seventh"))
+        {
+            notes.push_back(int4.getNextSorted(root));
+            if (!t->getTypeName().compare("dim"))
+            {
+                //dim7
+                str = chords[8];
+            }
+            else
+                throw E_CHORD_UNKNOWN;
+        }
+        else
+            throw E_CHORD_UNKNOWN;
+        name = n->display() + str;
+    }
+}
 Chord::Chord(Note *n, const std::string &str, Note *b, int inv) : bass(b), inversion(inv)
 {
     const std::string *ret = std::find(std::begin(triads), std::end(triads), str);

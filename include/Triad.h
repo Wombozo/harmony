@@ -17,6 +17,7 @@ private:
     Note *root;
     Note *bass;
     std::string name;
+    std::string typeName;
     int inversion;
     std::vector<Interval> intervals;
 
@@ -33,6 +34,7 @@ public:
     ~Triad();
 
     std::string getName(void);
+    std::string getTypeName(void);
     Note *getRoot(void);
     Note *getBass(void);
     int getInversion(void);

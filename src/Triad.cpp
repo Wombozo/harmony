@@ -45,11 +45,13 @@ Triad::Triad(Note *n, const std::string &str, Note *b) : Triad(n, str, b, 0)
     }
 }
 
-Triad::Triad(Note *n, std::vector<Interval> ints) : intervals(ints), root(n), bass(n), inversion(0)
+Triad::Triad(Note *n, std::vector<Interval> ints) : root(n), bass(n), inversion(0)
 {
     std::string str;
-    if (ints.size() != 2)
+    if (ints.size() < 2)
         throw E_CHORD_UNKNOWN;
+    
+    intervals = {ints.at(0), ints.at(1)};
     if (!ints.at(0).getName().compare("major third") && !ints.at(1).getName().compare("perfect fifth"))
     {
         str = triads[0];
@@ -86,6 +88,7 @@ Triad::Triad(Note *n, std::vector<Interval> ints) : intervals(ints), root(n), ba
         throw E_CHORD_UNKNOWN;
     setNotes(this, &ints);
     name = n->display() + str;
+    typeName = str;
 }
 
 Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(b), inversion(inv)
@@ -146,6 +149,7 @@ Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
     std::rotate(notes.begin(), notes.begin() + inversion, notes.end());
 
     name = n->display() + str;
+    typeName = str;
     if (root != bass)
     {
         name += "/" + bass->display();
@@ -192,4 +196,9 @@ std::vector<Interval> Triad::getIntervals()
 int Triad::getInversion()
 {
     return inversion;
+}
+
+std::string Triad::getTypeName()
+{
+    return typeName;
 }
