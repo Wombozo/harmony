@@ -26,13 +26,6 @@ Scale::Scale(Note *t, const std::string &n) : tonic(t), name(n)
                      Interval("major sixth"),
                      Interval("major seventh")};
         setNotes();
-        degChords.push_back(Chord(notes.at(0), "maj7"));
-        degChords.push_back(Chord(notes.at(1), "m7"));
-        degChords.push_back(Chord(notes.at(2), "m7"));
-        degChords.push_back(Chord(notes.at(3), "maj7"));
-        degChords.push_back(Chord(notes.at(4), "7"));
-        degChords.push_back(Chord(notes.at(5), "m7"));
-        degChords.push_back(Chord(notes.at(6), "m7b5"));
     }
     else if (!n.compare("Minor"))
     {
@@ -43,13 +36,6 @@ Scale::Scale(Note *t, const std::string &n) : tonic(t), name(n)
                      Interval("minor sixth"),
                      Interval("minor seventh")};
         setNotes();
-        degChords.push_back(Chord(notes.at(0), "m7"));
-        degChords.push_back(Chord(notes.at(1), "m7b5"));
-        degChords.push_back(Chord(notes.at(2), "maj7"));
-        degChords.push_back(Chord(notes.at(3), "min7"));
-        degChords.push_back(Chord(notes.at(4), "7"));
-        degChords.push_back(Chord(notes.at(5), "maj77"));
-        degChords.push_back(Chord(notes.at(6), "7"));
     }
     else
         throw E_SCALE_UNKNOWN;
@@ -61,32 +47,28 @@ int Scale::getDegree(Note *n)
     for (auto note : notes)
     {
         if (n == note)
-            return deg;
+            return deg + 1;
+        else
+            deg++;
     }
     throw E_DEGREE_NOT_FOUND;
 }
 
 Note *Scale::getDegree(int deg)
 {
-    return notes.at(deg);
+    if (deg >= notes.size() | deg < 1)
+        throw E_DEGREE_NOT_FOUND;
+    return notes.at(deg - 1);
 }
 
 Chord Scale::getDegreeChord(Note *n)
 {
-    int i = 0;
-    for (auto dc : degChords)
-    {
-        if (dc.getRoot() == n)
-            return degChords.at(getDegree(n));
-        throw E_DEGREE_NOT_FOUND;
-    }
 }
 
-Chord Scale::getDegreeChord(int i)
+Chord Scale::getDegreeChord(int deg)
 {
-    if (i >= degChords.size())
+    if (deg >= notes.size() | deg < 1)
         throw E_DEGREE_NOT_FOUND;
-    return degChords.at(i);
 }
 
 Scale::~Scale()

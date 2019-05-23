@@ -18,6 +18,7 @@ SRC_FILES = main.cpp \
 			Interval.cpp \
 			Chord.cpp \
 			Triad.cpp \
+			Scale.cpp \
 
 OBJ_NAME = $(SRC_FILES:.cpp=.o)
 
