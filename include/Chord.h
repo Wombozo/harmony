@@ -15,6 +15,7 @@ private:
     Note *bass;
     int inversion;
     std::string name;
+    std::vector<Interval> intervals;
 
 public:
     std::vector<Note *> notes;

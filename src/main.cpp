@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
         std::cout << "This software has many features and will be improved by time. "
                      "Please use 'git pull' each time you want to use it to keep you updated."
                   << std::endl;
+        Triad t(C,"");
+        std::cout << t.getName() << ": "<<t.displayNotes() << std::endl;
     }
     catch (H_ERR err)
     {

@@ -2,6 +2,8 @@
 #define _TRIAD
 
 #include "Note.h"
+#include "Interval.h"
+
 #include <vector>
 #include <algorithm>
 
@@ -16,6 +18,7 @@ private:
     Note *bass;
     std::string name;
     int inversion;
+    std::vector<Interval> intervals;
 
 public:
     std::vector<Note *> notes;
@@ -23,8 +26,9 @@ public:
 public:
     Triad() {}
     Triad(Note *, const std::string &);
-    Triad(Note *, const std::string &, int);
+    Triad(Note *, std::string , int);
     Triad(Note *, const std::string &, Note *);
+    Triad(Note *, const std::vector<Interval>&);
     Triad(Note *, const std::string &, Note *, int);
     ~Triad();
 
@@ -32,6 +36,7 @@ public:
     Note *getRoot(void);
     Note *getBass(void);
     int getInversion(void);
+    std::vector<Interval> getIntervals(void);
 
     //    void findTriad(const std::vector<Note *> &);
     std::string displayNotes(void);

@@ -1,5 +1,4 @@
 #include "Chord.h"
-#include "Interval.h"
 #include "NaturalNote.h"
 #include "DblFlatNote.h"
 #include "DblSharpNote.h"
