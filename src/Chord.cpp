@@ -6,8 +6,6 @@
 #include "SharpNote.h"
 #include "FlatNote.h"
 
-#define CHORD_COUNT 9
-
 const std::string chords[CHORD_COUNT] = {"7", "maj7", "6", "m7", "minmaj7", "m6", "m7b5", "7b5", "dim7"};
 
 Chord::Chord(Note *n, const std::string &str) : Chord(n, str, n, 0)

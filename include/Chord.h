@@ -3,6 +3,10 @@
 
 #include "Triad.h"
 
+#define CHORD_COUNT 9
+
+extern const std::string chords[CHORD_COUNT];
+
 class Chord
 {
 private:
