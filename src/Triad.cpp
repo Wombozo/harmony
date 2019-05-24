@@ -7,7 +7,7 @@
 
 const std::string triads[TRIAD_COUNT] = {"", "m", "aug", "dim", "sus4", "sus2", "b5", "m#5"};
 
-static void setNotes(Triad *c, std::vector<Interval> *intervals)
+static void _setNotes(Triad *c, std::vector<Interval> *intervals)
 {
     c->getRoot()->getNatural()->sort();
     c->notes.push_back(c->getBass());
@@ -86,7 +86,7 @@ Triad::Triad(Note *n, std::vector<Interval> ints) : root(n), bass(n), inversion(
     }
     else
         throw E_CHORD_UNKNOWN;
-    setNotes(this, &ints);
+    _setNotes(this, &ints);
     name = n->display() + str;
     typeName = str;
 }
@@ -97,49 +97,49 @@ Triad::Triad(Note *n, const std::string &str, Note *b, int inv) : root(n), bass(
     {
         // "" (major)
         intervals = {std::string("major third"), std::string("perfect fifth")};
-        setNotes(this, &intervals);
+        _setNotes(this, &intervals);
     }
     else if (!str.compare(triads[1]))
     {
         // "m"
         intervals = {std::string("minor third"), std::string("perfect fifth")};
-        setNotes(this, &intervals);
+        _setNotes(this, &intervals);
     }
     else if (!str.compare(triads[2]))
     {
         // "aug"
         intervals = {std::string("major third"), std::string("augmented fifth")};
-        setNotes(this, &intervals);
+        _setNotes(this, &intervals);
     }
     else if (!str.compare(triads[3]))
     {
         // "dim"
         intervals = {std::string("minor third"), std::string("diminished fifth")};
-        setNotes(this, &intervals);
+        _setNotes(this, &intervals);
     }
     else if (!str.compare(triads[4]))
     {
         // "sus4"
         intervals = {std::string("perfect fourth"), std::string("perfect fifth")};
-        setNotes(this, &intervals);
+        _setNotes(this, &intervals);
     }
     else if (!str.compare(triads[5]))
     {
         // "sus2"
         intervals = {std::string("major second"), std::string("perfect fifth")};
-        setNotes(this, &intervals);
+        _setNotes(this, &intervals);
     }
     else if (!str.compare(triads[6]))
     {
         // "b5"
         intervals = {std::string("major third"), std::string("diminished fifth")};
-        setNotes(this, &intervals);
+        _setNotes(this, &intervals);
     }
     else if (!str.compare(triads[7]))
     {
         // "m#5"
         intervals = {std::string("minor third"), std::string("augmented fifth")};
-        setNotes(this, &intervals);
+        _setNotes(this, &intervals);
     }
     else
         throw E_CHORD_UNKNOWN;

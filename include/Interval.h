@@ -12,6 +12,7 @@ private:
 
 public:
     Interval(const std::string &str);
+    Interval(int, int);
     ~Interval(void);
     std::string getName(void);
     int getType(void);

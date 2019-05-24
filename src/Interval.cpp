@@ -54,7 +54,53 @@ Note *Interval::getNextSorted(Note *a)
     return tmp;
 }
 
-Interval::Interval(const std::string &str)
+Interval::Interval(int t, int s) : type(t), semitones(s)
+{
+    if (t == 2 && s == 1)
+        name = "minor second";
+    else if (t == 2 && s == 2)
+        name = "major second";
+    else if (t == 2 && s == 3)
+        name = "augmented second";
+    else if (t == 3 && s == 2)
+        name = "diminished third";
+    else if (t == 3 && s == 3)
+        name = "minor third";
+    else if (t == 3 && s == 4)
+        name = "major third";
+    else if (t == 3 && s == 5)
+        name = "augmented third";
+    else if (t == 4 && s == 4)
+        name = "diminished fourth";
+    else if (t == 4 && s == 5)
+        name = "perfect fourth";
+    else if (t == 4 && s == 6)
+        name = "augmented fourth";
+    else if (t == 5 && s == 6)
+        name = "diminished fifth";
+    else if (t == 5 && s == 7)
+        name = "perfect fifth";
+    else if (t == 5 && s == 8)
+        name = "augmented fifth";
+    else if (t == 6 && s == 7)
+        name = "diminished sixth";
+    else if (t == 6 && s == 8)
+        name = "minor sixth";
+    else if (t == 6 && s == 9)
+        name = "major sixth";
+    else if (t == 6 && s == 10)
+        name = "augmented sixth";
+    else if (t == 7 && s == 9)
+        name = "diminished seventh";
+    else if (t == 7 && s == 10)
+        name = "minor seventh";
+    else if (t == 7 && s == 11)
+        name = "major seventh";
+    else
+        throw E_INTERVAL;
+}
+
+Interval::Interval(const std::string &str) : name(str)
 {
     if (!str.compare("minor second"))
     {
@@ -160,7 +206,6 @@ Interval::Interval(const std::string &str)
     {
         throw E_INTERVAL;
     }
-    name = str;
 }
 
 Interval::~Interval()
