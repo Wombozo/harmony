@@ -78,8 +78,8 @@ bool valid_user_type_chord_input(const std::string &str)
 {
     std::string stypes[] = {"M",
                             "m",
-                            "diminished",
-                            "augmented",
+                            "dim",
+                            "aug",
                             "sus4",
                             "7sus4",
                             "sus2",
@@ -91,10 +91,7 @@ bool valid_user_type_chord_input(const std::string &str)
                             "m6",
                             "7b5",
                             "dim7",
-                            "m7b5",
-                            "Ger6",
-                            "It6",
-                            "Fr6"};
+                            "m7b5"};
     for (auto stype : stypes)
     {
         if (!stype.compare(str))

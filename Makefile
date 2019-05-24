@@ -19,6 +19,7 @@ SRC_FILES = main.cpp \
 			Chord.cpp \
 			Triad.cpp \
 			Scale.cpp \
+			user.cpp  \
 
 OBJ_NAME = $(SRC_FILES:.cpp=.o)
 

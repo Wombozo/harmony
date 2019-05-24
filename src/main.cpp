@@ -1,5 +1,4 @@
-#include "Chord.h"
-#include "Scale.h"
+#include "user.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,12 +9,13 @@ int main(int argc, char *argv[])
         std::cout << "This software has many features and will be improved by time. "
                      "Please use 'git pull' each time you want to use it to keep you updated."
                   << std::endl;
-        Interval i1("minor third");
-        Interval i2("perfect fifth");
-        Interval i3("major sixth");
-        Chord c(Bb,{i1,i2,i3});
-        std::cout << c.getName() << ": "<< c.displayNotes() << std::endl;
-
+        if (argc > 1)
+            interact(atoi(argv[1]));
+        else
+        {
+            help();
+            interact(0);
+        }
     }
     catch (H_ERR err)
     {
